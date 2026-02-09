@@ -36,11 +36,12 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent z-10"></div>
         <div className="w-full h-full border-l border-border bg-card translate-x-1/3 scale-125">
-          {/* Placeholder for the background texture */}
+          {/* Background showcasing Deskly interface */}
           <img
             src="/main.png"
-            alt="Background Texture"
+            alt="Deskly desktop application interface showing VIT Chennai VTOP dashboard with attendance tracking and timetable"
             className="w-full h-full object-cover opacity-60 hidden md:block"
+            loading="eager"
           />
         </div>
       </div>

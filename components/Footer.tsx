@@ -11,10 +11,11 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3 mb-8">
               <Image
                 src="/app-logo.png"
-                alt="Deskly"
+                alt="Deskly - VIT Chennai Desktop App Logo"
                 width={32}
                 height={32}
                 className="h-8 w-8"
+                loading="lazy"
               />
               <span className="text-xl font-bold tracking-tight text-foreground">
                 Deskly

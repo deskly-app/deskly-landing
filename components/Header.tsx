@@ -18,10 +18,11 @@ export const Header: React.FC = () => {
         >
           <Image
             src="/app-logo.png"
-            alt="Deskly"
+            alt="Deskly - VIT Chennai Desktop App Logo"
             width={36}
             height={36}
             className="h-9 w-9"
+            priority
           />
           <span className="text-xl font-bold tracking-tight text-foreground">
             Deskly

@@ -34,8 +34,11 @@ export const FeatureSection: React.FC<PainPointSectionProps> = ({
           <div className="aspect-video bg-background rounded-2xl overflow-hidden relative">
             <img
               src={imageSrc}
-              alt={solutionTitle}
+              alt={`${title} - ${solutionTitle} feature in Deskly VIT Chennai app`}
               className="w-full h-full object-cover"
+              loading="lazy"
+              width={800}
+              height={450}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none"></div>
             <div className="absolute bottom-6 left-6 right-6">
