@@ -5,7 +5,7 @@ import { Github } from "lucide-react";
 export const Header: React.FC = () => {
   const navItems = [
     { label: "Core Features", href: "#features" },
-    { label: "VIT Chennai SSO", href: "#sso" },
+    { label: "Single Sign-On", href: "#sso" },
     { label: "Architecture", href: "#architecture" },
   ];
 
@@ -33,6 +33,13 @@ export const Header: React.FC = () => {
             <a
               key={item.label}
               href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector(item.href);
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               className="px-5 py-2 rounded-full text-[11px] uppercase tracking-widest font-bold text-muted-foreground hover:text-foreground hover:bg-accent transition-all cursor-pointer"
             >
               {item.label}
@@ -44,7 +51,7 @@ export const Header: React.FC = () => {
           <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-card/50 border border-border">
             <span className="h-1.5 w-1.5 rounded-full bg-chart-2 animate-pulse"></span>
             <span className="text-[11px] font-bold text-muted-foreground tracking-wider">
-              V2.0.4
+              1.1.4
             </span>
           </div>
           <a

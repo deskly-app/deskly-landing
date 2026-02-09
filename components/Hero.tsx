@@ -35,12 +35,12 @@ export const Hero: React.FC = () => {
     <section className="relative min-h-screen flex items-center pt-32 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent z-10"></div>
-        <div className="w-full h-full border-l border-border bg-card translate-x-1/3 scale-125 opacity-40">
+        <div className="w-full h-full border-l border-border bg-card translate-x-1/3 scale-125">
           {/* Placeholder for the background texture */}
           <img
-            src="https://picsum.photos/seed/deskly-bg/1920/1080?grayscale&blur=2"
+            src="/main.png"
             alt="Background Texture"
-            className="w-full h-full object-cover grayscale opacity-50"
+            className="w-full h-full object-cover opacity-60 hidden md:block"
           />
         </div>
       </div>
@@ -92,9 +92,12 @@ export const Hero: React.FC = () => {
               <Download className="h-4 w-4" />
               Download for {platforms[platform].label}
             </button>
-            <button className="w-full sm:w-auto h-14 px-10 rounded border border-border bg-card/50 backdrop-blur text-foreground text-[15px] font-semibold hover:bg-card transition-colors">
+            <a
+              href="#features"
+              className="w-full sm:w-auto h-14 px-10 rounded border border-border bg-card/50 backdrop-blur text-foreground text-[15px] font-semibold hover:bg-card transition-colors flex items-center justify-center"
+            >
               View App Tour
-            </button>
+            </a>
           </div>
           <div className="mt-4 flex items-center gap-3 text-[11px] font-mono text-muted-foreground">
             <span>v2.0.4 (Stable)</span>

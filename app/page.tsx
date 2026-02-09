@@ -152,7 +152,7 @@ function App() {
               title="Secure, Persistent Sessions"
               description="Stop logging in every time. Deskly uses Electron-Store and Keytar to securely encrypt your credentials in the System Keychain, maintaining your VIT Chennai session across restarts."
               solutionTitle="Token Management"
-              imageSrc="https://picsum.photos/seed/securitylogin/800/450"
+              imageSrc="/security.webp"
             />
 
             <FeatureSection
@@ -160,7 +160,7 @@ function App() {
               title="Never Miss a Class"
               description="Our Direct VTOP Integration bypasses slow portals. We fetch data directly from vtopcc.vit.ac.in to give you instant updates on class changes and attendance drops."
               solutionTitle="Live Sync Engine"
-              imageSrc="https://picsum.photos/seed/scheduleview/800/450"
+              imageSrc="/never-miss-class.png"
               reversed={true}
             />
 
@@ -169,7 +169,7 @@ function App() {
               title="Zero Interruptions, Zero Captchas"
               description="Our intelligent background service detects session invalidation instantly. Deskly performs an auto-relogin the moment your token expires, completely bypassing manual captcha entry."
               solutionTitle="Silent Re-Authentication"
-              imageSrc="https://picsum.photos/seed/nocaptcha/800/450"
+              imageSrc="/zero-captcha.jpeg"
             />
 
             <FeatureSection
@@ -177,7 +177,7 @@ function App() {
               title="Always on the Cutting Edge"
               description="Forget about manual downloads. Deskly integrates electron-updater to silently fetch and install the latest features and security patches in the background, ensuring you're always running the best version."
               solutionTitle="Seamless OTA Updates"
-              imageSrc="https://picsum.photos/seed/autoupdate/800/450"
+              imageSrc="/auto-updates.png"
               reversed={true}
             />
           </div>
