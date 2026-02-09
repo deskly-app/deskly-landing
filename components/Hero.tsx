@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
   const platforms = {
     windows: {
       label: "Windows",
-      file: "Deskly-Setup-2.0.4.exe",
+      file: "Deskly-Setup-1.1.4.exe",
       icon: Grid3x3,
     },
     mac: { label: "macOS", file: "Deskly-2.0.4.dmg", icon: Laptop },
@@ -88,10 +88,20 @@ export const Hero: React.FC = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-5">
-            <button className="w-full sm:w-auto h-14 px-10 rounded bg-primary text-primary-foreground text-[15px] font-black hover:bg-primary/90 transition-colors flex items-center justify-center gap-3 shadow-xl">
-              <Download className="h-4 w-4" />
-              Download for {platforms[platform].label}
-            </button>
+            {platform === "windows" ? (
+              <a
+                href="https://github.com/Vishal-770/Deskly/releases/download/v1.1.4/Deskly-Setup-1.1.4.exe"
+                className="w-full sm:w-auto h-14 px-10 rounded bg-primary text-primary-foreground hover:bg-primary/90 transition-colors flex items-center justify-center gap-3 shadow-xl"
+              >
+                <Download className="h-4 w-4" />
+                Download for {platforms[platform].label}
+              </a>
+            ) : (
+              <button className="w-full sm:w-auto h-14 px-10 rounded bg-primary text-primary-foreground hover:bg-primary/90 transition-colors flex items-center justify-center gap-3 shadow-xl">
+                <Download className="h-4 w-4" />
+                Download for {platforms[platform].label}
+              </button>
+            )}
             <a
               href="#features"
               className="w-full sm:w-auto h-14 px-10 rounded border border-border bg-card/50 backdrop-blur text-foreground text-[15px] font-semibold hover:bg-card transition-colors flex items-center justify-center"
@@ -100,7 +110,7 @@ export const Hero: React.FC = () => {
             </a>
           </div>
           <div className="mt-4 flex items-center gap-3 text-[11px] font-mono text-muted-foreground">
-            <span>v2.0.4 (Stable)</span>
+            <span>v1.1.4 (Stable)</span>
             <span className="h-1 w-1 rounded-full bg-border"></span>
             <span>{platforms[platform].file}</span>
           </div>
