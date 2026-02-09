@@ -90,7 +90,7 @@ export const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center gap-5">
             {platform === "windows" ? (
               <a
-                href="https://github.com/Vishal-770/Deskly/releases/download/v2.1.0/Deskly-Setup-1.2.0.exe"
+                href="https://github.com/Vishal-770/Deskly/releases/download/v1.2.0/Deskly-Setup-1.2.0.exe"
                 className="w-full sm:w-auto h-14 px-10 rounded bg-primary text-primary-foreground hover:bg-primary/90 transition-colors flex items-center justify-center gap-3 shadow-xl"
               >
                 <Download className="h-4 w-4" />
@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
             </a>
           </div>
           <div className="mt-4 flex items-center gap-3 text-[11px] font-mono text-muted-foreground">
-            <span>v2.1.0 (Stable)</span>
+            <span>v1.2.0 (Stable)</span>
             <span className="h-1 w-1 rounded-full bg-border"></span>
             <span>{platforms[platform].file}</span>
           </div>
