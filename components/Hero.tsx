@@ -26,9 +26,20 @@ export const Hero: React.FC = () => {
       label: "Windows",
       file: "Deskly-Setup-1.2.0.exe",
       icon: Grid3x3,
+      url: "https://github.com/Vishal-770/Deskly/releases/download/v1.2.0/Deskly-Setup-1.2.0.exe",
     },
-    mac: { label: "macOS", file: "Deskly-2.0.4.dmg", icon: Laptop },
-    linux: { label: "Linux", file: "Deskly-2.0.4.AppImage", icon: Terminal },
+    mac: {
+      label: "macOS",
+      file: "Deskly-2.0.4.dmg",
+      icon: Laptop,
+      url: "https://github.com/Vishal-770/Deskly/releases/download/v2.0.4/Deskly-2.0.4.dmg",
+    },
+    linux: {
+      label: "Linux",
+      file: "Deskly-2.0.4.AppImage",
+      icon: Terminal,
+      url: "https://github.com/Vishal-770/Deskly/releases/download/v2.0.4/Deskly-2.0.4.AppImage",
+    },
   };
 
   return (
@@ -89,20 +100,13 @@ export const Hero: React.FC = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-5">
-            {platform === "windows" ? (
-              <a
-                href="https://github.com/Vishal-770/Deskly/releases/download/v1.2.0/Deskly-Setup-1.2.0.exe"
-                className="w-full sm:w-auto h-14 px-10 rounded bg-primary text-primary-foreground hover:bg-primary/90 transition-colors flex items-center justify-center gap-3 shadow-xl"
-              >
-                <Download className="h-4 w-4" />
-                Download for {platforms[platform].label}
-              </a>
-            ) : (
-              <button className="w-full sm:w-auto h-14 px-10 rounded bg-primary text-primary-foreground hover:bg-primary/90 transition-colors flex items-center justify-center gap-3 shadow-xl">
-                <Download className="h-4 w-4" />
-                Download for {platforms[platform].label}
-              </button>
-            )}
+            <a
+              href={platforms[platform].url}
+              className="w-full sm:w-auto h-14 px-10 rounded bg-primary text-primary-foreground hover:bg-primary/90 transition-colors flex items-center justify-center gap-3 shadow-xl"
+            >
+              <Download className="h-4 w-4" />
+              Download for {platforms[platform].label}
+            </a>
             <a
               href="#features"
               className="w-full sm:w-auto h-14 px-10 rounded border border-border bg-card/50 backdrop-blur text-foreground text-[15px] font-semibold hover:bg-card transition-colors flex items-center justify-center"

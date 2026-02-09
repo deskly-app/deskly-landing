@@ -14,9 +14,12 @@ export const FinalCTA: React.FC = () => {
           Campus Life.
         </h2>
         <div className="flex flex-col items-center gap-10">
-          <button className="h-16 px-16 rounded bg-primary text-primary-foreground text-lg font-black hover:bg-primary/90 transition-colors shadow-2xl">
+          <a
+            href="https://github.com/Vishal-770/Deskly/releases"
+            className="h-16 px-16 rounded bg-primary text-primary-foreground text-lg font-black hover:bg-primary/90 transition-colors shadow-2xl inline-flex items-center justify-center"
+          >
             Download Deskly
-          </button>
+          </a>
           <div className="flex flex-wrap justify-center gap-12 opacity-50 text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
             <div className="flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5" />
