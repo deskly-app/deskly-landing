@@ -52,7 +52,7 @@ export const Header: React.FC = () => {
           <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-card/50 border border-border">
             <span className="h-1.5 w-1.5 rounded-full bg-chart-2 animate-pulse"></span>
             <span className="text-[11px] font-bold text-muted-foreground tracking-wider">
-              1.2.0
+              1.4.0
             </span>
           </div>
           <a
