@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Github } from "lucide-react";
+import { VERSION } from "../lib/version";
 
 export const Header: React.FC = () => {
   const navItems = [
@@ -52,7 +53,7 @@ export const Header: React.FC = () => {
           <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-card/50 border border-border">
             <span className="h-1.5 w-1.5 rounded-full bg-chart-2 animate-pulse"></span>
             <span className="text-[11px] font-bold text-muted-foreground tracking-wider">
-              1.4.0
+              {VERSION}
             </span>
           </div>
           <a

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Grid3x3, Laptop, Terminal, Download } from "lucide-react";
+import { VERSION } from "../lib/version";
 
 const FeatureStat = ({
   title,
@@ -24,21 +25,21 @@ export const Hero: React.FC = () => {
   const platforms = {
     windows: {
       label: "Windows",
-      file: "Deskly-Setup-1.4.0.exe",
+      file: `Deskly-Setup-${VERSION}.exe`,
       icon: Grid3x3,
-      url: "https://github.com/Vishal-770/Deskly/releases/download/v1.4.0/Deskly-Setup-1.4.0.exe",
+      url: `https://github.com/Vishal-770/Deskly/releases/download/v${VERSION}/Deskly-Setup-${VERSION}.exe`,
     },
     mac: {
       label: "macOS",
-      file: "Deskly-1.4.0.dmg",
+      file: `Deskly-${VERSION}.dmg`,
       icon: Laptop,
-      url: "https://github.com/Vishal-770/Deskly/releases/download/v1.4.0/Deskly-Setup-1.4.0.dmg",
+      url: `https://github.com/Vishal-770/Deskly/releases/download/v${VERSION}/Deskly-Setup-${VERSION}.dmg`,
     },
     linux: {
       label: "Linux",
-      file: "Deskly-Setup-1.4.0.AppImage",
+      file: `Deskly-Setup-${VERSION}.AppImage`,
       icon: Terminal,
-      url: "https://github.com/Vishal-770/Deskly/releases/download/v1.4.0/Deskly-Setup-1.4.0.AppImage",
+      url: `https://github.com/Vishal-770/Deskly/releases/download/v${VERSION}/Deskly-Setup-${VERSION}.AppImage`,
     },
   };
 
@@ -115,7 +116,7 @@ export const Hero: React.FC = () => {
             </a>
           </div>
           <div className="mt-4 flex items-center gap-3 text-[11px] font-mono text-muted-foreground">
-            <span>v1.4.0 (Stable)</span>
+            <span>v{VERSION} (Stable)</span>
             <span className="h-1 w-1 rounded-full bg-border"></span>
             <span>{platforms[platform].file}</span>
           </div>
