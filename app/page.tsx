@@ -143,7 +143,7 @@ export default function Page() {
 
         {/* Browser Mockup Image (Rendered in normal flow with tight margin) */}
         <ScrollReveal delay={250} duration={1200}>
-          <div className="relative z-30 w-full max-w-[1250px] px-6 mt-10 md:mt-12">
+          <div className="relative z-30 w-full max-w-[1250px] mx-auto px-6 mt-10 md:mt-12">
             <div className="bg-[#0b0f19] rounded-xl border border-white/10 shadow-2xl overflow-hidden">
               {/* Mac Browser Frame Bar */}
               <div className="flex items-center justify-between px-4 py-3 bg-[#0d1220] border-b border-white/5">
