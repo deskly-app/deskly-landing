@@ -44,14 +44,14 @@ export default function FeatureWithImageComparison() {
         <div className="flex flex-col items-center text-center mb-16 gap-4">
           <div>
             <Badge variant="outline" className="text-blue-400 border-blue-500/20 bg-blue-500/5 px-3 py-1 font-sans text-xs tracking-wider uppercase">
-              UI Comparison
+              UI Showcase
             </Badge>
           </div>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white font-header leading-[1.2]">
-            A Massive Leap in Student UX
+            Designed for Day and Night
           </h2>
           <p className="max-w-2xl text-zinc-400 text-sm md:text-base font-sans font-normal leading-relaxed">
-            Slide to compare the cluttered, captcha-gated legacy VTOP portal login with Deskly's fluid, one-click dashboard assistant.
+            Slide to compare Deskly's immersive dark mode and clean, vibrant light mode desktop dashboard layouts.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export default function FeatureWithImageComparison() {
               </div>
               {/* URL bar */}
               <div className="flex-1 max-w-xs mx-auto bg-[#070a12] rounded-md py-1 px-3 text-center text-[10px] text-white/40 font-mono tracking-wide border border-white/5 select-none">
-                vtop.vit.ac.in vs deskly.app
+                deskly.app
               </div>
               {/* Actions Placeholder */}
               <div className="flex items-center gap-2 text-white/30">
@@ -89,8 +89,8 @@ export default function FeatureWithImageComparison() {
               {/* Bottom Image (Before - Left Side) */}
               <div className="absolute inset-0 w-full h-full">
                 <Image
-                  src="/zero-captcha.jpeg"
-                  alt="Legacy VTOP Login with Captcha"
+                  src="/main.png"
+                  alt="Deskly Dark Mode Theme"
                   fill
                   sizes="(max-w-7xl) 100vw"
                   priority
@@ -99,7 +99,7 @@ export default function FeatureWithImageComparison() {
                 
                 {/* Floating Left Label */}
                 <div className="absolute left-6 bottom-6 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-[4px] text-[10px] tracking-widest uppercase font-semibold text-zinc-400 select-none pointer-events-none">
-                  Before: Legacy VTOP Login
+                  Dark Mode
                 </div>
               </div>
 
@@ -111,8 +111,8 @@ export default function FeatureWithImageComparison() {
                 }}
               >
                 <Image
-                  src="/main.png"
-                  alt="Deskly Dashboard Streamlined Workspace"
+                  src="/light.png"
+                  alt="Deskly Light Mode Theme"
                   fill
                   sizes="(max-w-7xl) 100vw"
                   priority
@@ -121,7 +121,7 @@ export default function FeatureWithImageComparison() {
 
                 {/* Floating Right Label */}
                 <div className="absolute right-6 bottom-6 z-20 bg-blue-600/90 backdrop-blur-md border border-blue-500/20 px-3 py-1.5 rounded-[4px] text-[10px] tracking-widest uppercase font-semibold text-white select-none pointer-events-none">
-                  After: Deskly Workspace
+                  Light Mode
                 </div>
               </div>
 
