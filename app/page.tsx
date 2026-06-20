@@ -8,6 +8,7 @@ import FeatureWithImageComparison from "@/components/ui/feature-with-image-compa
 import CallToAction from "@/components/ui/cta-3";
 import Footer from "@/components/ui/footer";
 import ScrollReveal from "@/components/ui/scroll-reveal";
+import ComparisonSection from "@/components/ui/comparison-section";
 import { Shield, BookOpen, Clock, ShieldAlert, Cpu, Sparkles } from "lucide-react";
 import BootingLoader from "@/components/ui/booting-loader";
 
@@ -229,6 +230,11 @@ export default function Page() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Comparison Section */}
+      <ScrollReveal>
+        <ComparisonSection />
+      </ScrollReveal>
 
       {/* Multi Orbit Semi-Circle Section */}
       <ScrollReveal>
