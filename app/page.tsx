@@ -7,6 +7,7 @@ import CallToAction from "@/components/ui/cta-3";
 import Footer from "@/components/ui/footer";
 import ScrollReveal from "@/components/ui/scroll-reveal";
 import { Shield, BookOpen, Clock, ShieldAlert, Cpu, Sparkles } from "lucide-react";
+import BootingLoader from "@/components/ui/booting-loader";
 
 const gridFeatures = [
   {
@@ -44,6 +45,7 @@ const gridFeatures = [
 export default function Page() {
   return (
     <div className="relative w-full min-h-screen bg-black text-white overflow-x-hidden flex flex-col justify-start">
+      <BootingLoader />
       
       {/* First Fold: Hero Section (Height is determined by content flow) */}
       <section className="relative w-full flex flex-col items-center justify-start overflow-visible">
