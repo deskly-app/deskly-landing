@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Component from "@/components/ui/gradient-bars-background";
 import { Features } from "@/components/blocks/features-8";
 import { FeatureCard } from "@/components/blocks/grid-feature-cards";
@@ -9,7 +8,7 @@ import FeatureWithImageComparison from "@/components/ui/feature-with-image-compa
 import CallToAction from "@/components/ui/cta-3";
 import Footer from "@/components/ui/footer";
 import ScrollReveal from "@/components/ui/scroll-reveal";
-import { Shield, BookOpen, Clock, ShieldAlert, Cpu, Sparkles, X, Menu } from "lucide-react";
+import { Shield, BookOpen, Clock, ShieldAlert, Cpu, Sparkles } from "lucide-react";
 import BootingLoader from "@/components/ui/booting-loader";
 
 const gridFeatures = [
@@ -46,8 +45,6 @@ const gridFeatures = [
 ];
 
 export default function Page() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <div className="relative w-full min-h-screen bg-black text-white overflow-x-hidden flex flex-col justify-start">
       <BootingLoader />
@@ -76,7 +73,7 @@ export default function Page() {
                 <span className="text-white font-semibold text-sm md:text-base tracking-wider font-sans">Deskly</span>
               </div>
 
-              {/* Desktop Nav Links */}
+              {/* Desktop Nav Links — hidden on mobile */}
               <nav className="hidden md:flex items-center gap-8">
                 <a href="#features" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">Features</a>
                 <a href="#how-it-works" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">How It Works</a>
@@ -85,46 +82,19 @@ export default function Page() {
                 <a href="#company" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">Company</a>
               </nav>
 
-              {/* Right: GitHub + Hamburger */}
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://github.com/Vishal-770/Deskly"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-3 md:px-4 py-2 rounded-[4px] text-xs font-medium shadow-md shadow-blue-500/10 active:scale-95 transition-all cursor-pointer font-sans"
-                >
-                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
-                  </svg>
-                  <span className="hidden sm:inline">GitHub</span>
-                </a>
-
-                {/* Hamburger — mobile only */}
-                <button
-                  className="md:hidden text-white/70 hover:text-white transition-colors p-1"
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  aria-label="Toggle menu"
-                >
-                  {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                </button>
-              </div>
+              {/* GitHub — icon only on mobile, icon + text on desktop */}
+              <a
+                href="https://github.com/Vishal-770/Deskly"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-3 md:px-4 py-2 rounded-[4px] text-xs font-medium shadow-md shadow-blue-500/10 active:scale-95 transition-all cursor-pointer font-sans"
+              >
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                </svg>
+                <span className="hidden md:inline">GitHub</span>
+              </a>
             </div>
-
-            {/* Mobile Dropdown Menu */}
-            {mobileMenuOpen && (
-              <div className="md:hidden bg-black/95 backdrop-blur-xl border-b border-white/5 px-5 py-4 flex flex-col gap-4">
-                {["Features", "How It Works", "Pricing", "Resource", "Company"].map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="text-white/70 hover:text-white text-sm font-medium transition-colors font-sans"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            )}
           </ScrollReveal>
         </header>
 
