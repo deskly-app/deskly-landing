@@ -1,5 +1,7 @@
+"use client";
+
 import { cn } from '@/lib/utils';
-import React from 'react';
+import React, { useId, useMemo } from 'react';
 
 type FeatureType = {
 	title: string;
@@ -11,8 +13,30 @@ type FeatureCardPorps = React.ComponentProps<'div'> & {
 	feature: FeatureType;
 };
 
+// Seeded deterministic pseudo-random number generator (LCG)
+// Produces the same sequence for a given seed — consistent on server AND client.
+function seededRand(seed: number) {
+	let s = seed;
+	return () => {
+		s = (s * 1664525 + 1013904223) & 0x7fffffff;
+		return s / 0x7fffffff;
+	};
+}
+
+function genDeterministicPattern(seed: string, length = 5): number[][] {
+	// Convert the string seed to a numeric seed
+	const numericSeed = seed.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
+	const rand = seededRand(numericSeed);
+	return Array.from({ length }, () => [
+		Math.floor(rand() * 4) + 7, // x between 7 and 10
+		Math.floor(rand() * 6) + 1, // y between 1 and 6
+	]);
+}
+
 export function FeatureCard({ feature, className, ...props }: FeatureCardPorps) {
-	const p = genRandomPattern();
+	// useId() returns a stable, consistent ID between SSR and client — no hydration mismatch
+	const id = useId();
+	const p = useMemo(() => genDeterministicPattern(id), [id]);
 
 	return (
 		<div className={cn('relative overflow-hidden p-6', className)} {...props}>
@@ -43,7 +67,7 @@ function GridPattern({
 	squares,
 	...props
 }: React.ComponentProps<'svg'> & { width: number; height: number; x: string; y: string; squares?: number[][] }) {
-	const patternId = React.useId();
+	const patternId = useId();
 
 	return (
 		<svg aria-hidden="true" {...props}>
@@ -62,12 +86,4 @@ function GridPattern({
 			)}
 		</svg>
 	);
-}
-
-function genRandomPattern(length?: number): number[][] {
-	length = length ?? 5;
-	return Array.from({ length }, () => [
-		Math.floor(Math.random() * 4) + 7, // random x between 7 and 10
-		Math.floor(Math.random() * 6) + 1, // random y between 1 and 6
-	]);
 }
