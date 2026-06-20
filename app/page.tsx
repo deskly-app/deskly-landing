@@ -61,7 +61,7 @@ export default function Page() {
 
         {/* Navbar Overlay */}
         <header className="absolute top-0 left-0 w-full z-50">
-          <ScrollReveal duration={1000} delay={100}>
+          <ScrollReveal duration={1000} delay={100} margin="0px">
             <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
               {/* Logo */}
               <div className="flex items-center gap-3">
