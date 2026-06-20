@@ -12,8 +12,8 @@ interface ScrollRevealProps {
 export default function ScrollReveal({ children, delay = 0, duration = 900 }: ScrollRevealProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 35, scale: 0.985 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{
         duration: duration / 1000, // Convert ms to seconds
