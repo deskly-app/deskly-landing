@@ -1,75 +1,35 @@
 "use client";
 
-import { Check, X, Sun, Moon, RotateCcw, Shield, Calendar, Bell, Zap, Database, Minus } from "lucide-react";
+import { Check, X, PlusIcon, RotateCcw, Shield, Calendar, Bell, Zap, Database, Sun, Moon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const rows = [
-  {
-    icon: RotateCcw,
-    label: "Auto VTOP Re-Login",
-    othersLabel: "Manual every session",
-    desklyLabel: "One-click, always live",
-  },
-  {
-    icon: Calendar,
-    label: "Live Timetable",
-    othersLabel: "Static screenshot / PDF",
-    desklyLabel: "Real-time slot dashboard",
-  },
-  {
-    icon: Zap,
-    label: "Attendance Tracking",
-    othersLabel: "Count it yourself",
-    desklyLabel: "Auto-tracked with alerts",
-  },
-  {
-    icon: Sun,
-    label: "Light & Dark Mode",
-    othersLabel: "Dark only or browser default",
-    desklyLabel: "System-aware, both modes",
-  },
-  {
-    icon: Shield,
-    label: "Credential Security",
-    othersLabel: "Plain text or cloud stored",
-    desklyLabel: "AES-256 local encryption",
-  },
-  {
-    icon: Database,
-    label: "Offline Support",
-    othersLabel: "Requires active internet",
-    desklyLabel: "Full offline vault",
-  },
-  {
-    icon: Bell,
-    label: "Smart Alerts",
-    othersLabel: "No notifications",
-    desklyLabel: "Native OS desktop alerts",
-  },
-  {
-    icon: Moon,
-    label: "Session Persistence",
-    othersLabel: "VTOP logs you out",
-    desklyLabel: "Session kept alive silently",
-  },
+  { icon: RotateCcw, label: "Auto VTOP Re-Login",      others: "Manual every session",           deskly: "One-click, always live" },
+  { icon: Calendar,  label: "Live Timetable Dashboard", others: "Static screenshot / PDF",         deskly: "Real-time slot dashboard" },
+  { icon: Zap,       label: "Attendance Tracking",      others: "Count it yourself",               deskly: "Auto-tracked with alerts" },
+  { icon: Sun,       label: "Light & Dark Mode UI",     others: "Dark only or browser default",    deskly: "System-aware, both modes" },
+  { icon: Shield,    label: "Credential Security",      others: "Plain text or cloud stored",      deskly: "AES-256 local encryption" },
+  { icon: Database,  label: "Offline Vault",            others: "Requires active internet",        deskly: "Full offline, zero cloud" },
+  { icon: Bell,      label: "Smart Alerts",             others: "No notifications",                deskly: "Native OS desktop alerts" },
+  { icon: Moon,      label: "Session Persistence",      others: "VTOP logs you out",               deskly: "Kept alive silently" },
 ];
 
 export default function ComparisonSection() {
   return (
     <section className="relative w-full py-20 sm:py-28 md:py-36 lg:py-48 bg-black overflow-hidden">
 
-      {/* Radial glow */}
+      {/* Background Radial Glow */}
       <div
         className="absolute inset-0 pointer-events-none z-0"
         style={{
-          background: `radial-gradient(ellipse 75% 55% at 50% 50%, rgba(37,99,235,0.16) 0%, rgba(29,78,216,0.05) 60%, transparent 90%)`,
+          background: `radial-gradient(ellipse 80% 70% at 50% 50%, rgba(37,99,235,0.18) 0%, rgba(29,78,216,0.06) 55%, transparent 85%)`,
         }}
       />
 
       <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10">
 
-        {/* Header */}
-        <div className="flex flex-col items-center text-center mb-16 md:mb-24 gap-4">
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-14 md:mb-20 gap-4">
           <Badge
             variant="outline"
             className="text-blue-400 border-blue-500/20 bg-blue-500/5 px-3 py-1 font-sans text-xs tracking-wider uppercase"
@@ -80,119 +40,103 @@ export default function ComparisonSection() {
             Built Different. Built Better.
           </h2>
           <p className="text-zinc-400 text-sm md:text-base font-sans leading-relaxed max-w-xl px-2">
-            Most VTOP solutions are half-baked browser scripts. Deskly is a purpose-built desktop experience — secure, offline-first, and fully automated.
+            Most VTOP tools are half-baked browser scripts. Deskly is a purpose-built desktop experience — secure, offline-first, and fully automated.
           </p>
         </div>
 
-        {/* Two-card comparison */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
+        {/* CTA-style retro grid container */}
+        <div className="relative mx-auto w-full max-w-5xl border-y border-white/10 bg-[radial-gradient(45%_80%_at_50%_0%,rgba(37,99,235,0.07),transparent)]">
 
-          {/* ── Left Card: Other Tools ── */}
-          <div className="relative rounded-2xl bg-white/[0.03] p-6 md:p-8 flex flex-col gap-5">
-            {/* Header */}
-            <div className="flex items-center gap-3 pb-5 border-b border-white/6">
-              <div className="w-8 h-8 rounded-lg bg-zinc-800/60 border border-white/8 flex items-center justify-center">
-                <Minus className="w-4 h-4 text-zinc-500" strokeWidth={2} />
-              </div>
-              <div>
-                <p className="text-white/80 font-semibold text-sm font-sans tracking-wide">Other Tools</p>
-                <p className="text-zinc-600 text-[10px] font-sans">Browser scripts, manual workflows</p>
-              </div>
-            </div>
+          {/* Plus corner markers */}
+          <PlusIcon className="absolute top-[-12px] left-[-12px] z-10 size-6 text-blue-500/50" strokeWidth={1} />
+          <PlusIcon className="absolute top-[-12px] right-[-12px] z-10 size-6 text-blue-500/50" strokeWidth={1} />
+          <PlusIcon className="absolute bottom-[-12px] left-[-12px] z-10 size-6 text-blue-500/50" strokeWidth={1} />
+          <PlusIcon className="absolute bottom-[-12px] right-[-12px] z-10 size-6 text-blue-500/50" strokeWidth={1} />
 
-            {/* Rows */}
-            <div className="flex flex-col gap-3">
-              {rows.map((row) => {
-                const Icon = row.icon;
-                return (
-                  <div key={row.label} className="flex items-start gap-3">
-                    <div className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-zinc-900 border border-zinc-700/50 flex items-center justify-center">
-                      <X className="w-2.5 h-2.5 text-zinc-600" strokeWidth={2.5} />
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-zinc-500 text-xs font-medium font-sans line-through decoration-zinc-700">
-                        {row.label}
-                      </span>
-                      <span className="text-zinc-700 text-[11px] font-sans">
-                        {row.othersLabel}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          {/* Vertical side guides */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-px border-l border-white/10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-px border-r border-white/10" />
 
-          {/* ── Right Card: Deskly ── */}
-          <div className="relative rounded-2xl overflow-hidden p-6 md:p-8 flex flex-col gap-5">
-
-            {/* Blue glow background layer */}
-            <div
-              className="absolute inset-0 z-0"
-              style={{
-                background: `radial-gradient(ellipse 100% 80% at 50% 0%, rgba(37,99,235,0.22) 0%, rgba(15,23,42,0.95) 70%)`,
-              }}
-            />
-            {/* Subtle border glow */}
-            <div className="absolute inset-0 rounded-2xl border border-blue-500/20 z-0 pointer-events-none" />
-
-            {/* Header */}
-            <div className="relative z-10 flex items-center justify-between pb-5 border-b border-blue-500/15">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-blue-600/20 border border-blue-500/30 flex items-center justify-center shadow-[0_0_12px_rgba(37,99,235,0.3)]">
-                  <Check className="w-4 h-4 text-blue-400" strokeWidth={2.5} />
-                </div>
-                <div>
-                  <p className="text-white font-semibold text-sm font-sans tracking-wide">Deskly</p>
-                  <p className="text-blue-400/70 text-[10px] font-sans">Desktop-grade. Always free.</p>
-                </div>
-              </div>
-              <span className="text-[10px] font-bold bg-blue-500/15 text-blue-300 border border-blue-500/25 px-2.5 py-1 rounded-full font-sans tracking-wider uppercase">
-                Free Forever
+          {/* Column headers row */}
+          <div className="grid grid-cols-[1fr_1fr_1fr] border-b border-white/8">
+            <div className="px-6 md:px-8 py-5">
+              <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-zinc-600 font-sans select-none">
+                Feature
               </span>
             </div>
-
-            {/* Rows */}
-            <div className="relative z-10 flex flex-col gap-3">
-              {rows.map((row) => {
-                const Icon = row.icon;
-                return (
-                  <div key={row.label} className="flex items-start gap-3">
-                    <div className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/15 border border-blue-500/30 flex items-center justify-center shadow-[0_0_8px_rgba(37,99,235,0.2)]">
-                      <Check className="w-2.5 h-2.5 text-blue-300" strokeWidth={2.5} />
-                    </div>
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-white text-xs font-medium font-sans">
-                        {row.label}
-                      </span>
-                      <span className="text-blue-300/50 text-[11px] font-sans">
-                        {row.desklyLabel}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="px-6 md:px-8 py-5 border-l border-white/8">
+              <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-zinc-600 font-sans select-none">
+                Other Tools
+              </span>
             </div>
+            <div className="px-6 md:px-8 py-5 border-l border-blue-500/20 flex items-center gap-2">
+              <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-blue-400 font-sans select-none">
+                Deskly
+              </span>
+              <span className="text-[8px] bg-blue-500/10 text-blue-300/80 border border-blue-500/20 px-1.5 py-0.5 font-sans tracking-wider font-semibold">
+                FREE
+              </span>
+            </div>
+          </div>
 
-            {/* CTA Button */}
-            <div className="relative z-10 pt-2">
+          {/* Feature rows */}
+          {rows.map((row, idx) => {
+            const Icon = row.icon;
+            const isLast = idx === rows.length - 1;
+            return (
+              <div
+                key={row.label}
+                className={`group grid grid-cols-[1fr_1fr_1fr] hover:bg-white/[0.02] transition-colors duration-150 ${!isLast ? "border-b border-white/5" : ""}`}
+              >
+                {/* Feature name */}
+                <div className="px-6 md:px-8 py-4 md:py-5 flex items-center gap-3">
+                  <Icon className="w-3.5 h-3.5 text-zinc-500 flex-shrink-0" strokeWidth={1.5} />
+                  <span className="text-white/75 text-xs md:text-sm font-sans font-normal leading-snug">
+                    {row.label}
+                  </span>
+                </div>
+
+                {/* Others */}
+                <div className="px-6 md:px-8 py-4 md:py-5 border-l border-white/5 flex items-center gap-2.5">
+                  <X className="w-3 h-3 text-zinc-700 flex-shrink-0" strokeWidth={2.5} />
+                  <span className="text-zinc-600 text-[11px] md:text-xs font-sans">
+                    {row.others}
+                  </span>
+                </div>
+
+                {/* Deskly */}
+                <div className="px-6 md:px-8 py-4 md:py-5 border-l border-blue-500/15 flex items-center gap-2.5">
+                  <Check className="w-3 h-3 text-blue-400 flex-shrink-0" strokeWidth={2.5} />
+                  <span className="text-zinc-200 text-[11px] md:text-xs font-sans">
+                    {row.deskly}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* Bottom CTA row */}
+          <div className="grid grid-cols-[1fr_1fr_1fr] border-t border-white/8">
+            <div className="px-6 md:px-8 py-6 flex items-center">
+              <span className="text-zinc-600 text-[11px] font-sans italic">
+                100% open source · MIT License
+              </span>
+            </div>
+            <div className="px-6 md:px-8 py-6 border-l border-white/5 flex items-center">
+              <span className="text-zinc-700 text-[11px] font-sans">Limited / Broken</span>
+            </div>
+            <div className="px-6 md:px-8 py-6 border-l border-blue-500/15 flex items-center">
               <a
                 href="#"
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-3 rounded-[6px] text-sm font-medium shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-all cursor-pointer font-sans"
+                className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-5 py-2 rounded-[4px] text-xs font-medium shadow-lg shadow-blue-500/20 active:scale-95 transition-all font-sans whitespace-nowrap"
               >
                 Download Free
-                <span className="text-xs">✦</span>
+                <span>✦</span>
               </a>
             </div>
-
           </div>
+
         </div>
-
-        {/* Bottom label */}
-        <p className="text-center text-zinc-700 text-xs font-sans mt-10 select-none">
-          All features included. No sign-up. No telemetry. Open source under MIT.
-        </p>
-
       </div>
     </section>
   );
