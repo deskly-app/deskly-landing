@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export default function CallToAction() {
   return (
-    <section className="relative w-full py-36 md:py-48 bg-black overflow-hidden">
+    <section className="relative w-full py-20 sm:py-28 md:py-36 lg:py-48 bg-black overflow-hidden">
       
       {/* Background Radial Glow (Highly visible horizontal lens-flare ellipse) */}
       <div 
@@ -18,7 +18,7 @@ export default function CallToAction() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-8 w-full relative z-10">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10">
         
         {/* Retro Grid Styled Box */}
         <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-between gap-y-8 border-y border-white/10 bg-[radial-gradient(45%_80%_at_50%_0%,rgba(37,99,235,0.08),transparent)] px-8 py-14">
@@ -47,8 +47,8 @@ export default function CallToAction() {
           <div className="-z-10 absolute top-0 left-1/2 h-full border-l border-dashed border-white/5" />
 
           {/* Text Content */}
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white font-header">
+          <div className="space-y-3 text-center px-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white font-header">
               Ready to Supercharge Your Academic Flow?
             </h2>
             <p className="text-zinc-400 max-w-lg mx-auto text-sm md:text-base font-sans font-normal leading-relaxed">

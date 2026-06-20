@@ -26,7 +26,7 @@ export default function FeatureWithImageComparison() {
   };
 
   return (
-    <section className="py-36 md:py-48 relative w-full overflow-hidden bg-black">
+    <section className="py-20 sm:py-28 md:py-36 lg:py-48 relative w-full overflow-hidden bg-black">
       
       {/* Background Radial Glow (Highly visible horizontal lens-flare ellipse) */}
       <div 
@@ -38,7 +38,7 @@ export default function FeatureWithImageComparison() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-8 w-full relative z-10">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10">
         
         {/* Title/Header Block */}
         <div className="flex flex-col items-center text-center mb-16 gap-4">
@@ -47,16 +47,16 @@ export default function FeatureWithImageComparison() {
               UI Showcase
             </Badge>
           </div>
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white font-header leading-[1.2]">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-white font-header leading-[1.2]">
             Designed for Day and Night
           </h2>
-          <p className="max-w-2xl text-zinc-400 text-sm md:text-base font-sans font-normal leading-relaxed">
+          <p className="max-w-2xl text-zinc-400 text-sm md:text-base font-sans font-normal leading-relaxed px-2">
             Slide to compare Deskly's immersive dark mode and clean, vibrant light mode desktop dashboard layouts.
           </p>
         </div>
 
         {/* Browser Mockup Wrapper */}
-        <div className="w-full max-w-[1250px] mx-auto mt-10 md:mt-12">
+        <div className="w-full max-w-[1250px] mx-auto mt-8 md:mt-10 lg:mt-12">
           <div className="bg-[#0b0f19] rounded-xl border border-white/10 shadow-2xl overflow-hidden">
             
             {/* Mac Browser Frame Bar */}

@@ -6,7 +6,7 @@ import { GradientBars } from "@/components/ui/gradient-bars-background";
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-black pt-28 pb-16 overflow-hidden min-h-[500px] flex flex-col justify-between">
+    <footer className="relative w-full bg-black pt-20 sm:pt-24 md:pt-28 pb-12 md:pb-16 overflow-hidden min-h-[500px] flex flex-col justify-between">
       
       {/* Background Vertical Bars */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -33,13 +33,13 @@ export default function Footer() {
 
       {/* Giant DESKLY background text centered & cut off at the bottom */}
       <div className="absolute bottom-[-15%] md:bottom-[-20%] left-0 w-full overflow-hidden select-none pointer-events-none z-5 flex justify-center">
-        <h1 className="text-[9rem] sm:text-[14rem] md:text-[20rem] font-bold tracking-[0.06em] text-white/[0.035] leading-none select-none font-header">
+        <h2 className="text-[5rem] sm:text-[8rem] md:text-[14rem] lg:text-[20rem] font-bold tracking-[0.06em] text-white/[0.035] leading-none select-none font-header">
           DESKLY
-        </h1>
+        </h2>
       </div>
 
       {/* Foreground Content Container */}
-      <div className="max-w-7xl mx-auto px-8 w-full relative z-10 grid grid-cols-12 gap-y-12 lg:gap-x-12">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10 grid grid-cols-12 gap-y-10 lg:gap-x-12">
         
         {/* Left Column: Title, Subtitle and Buttons */}
         <div className="col-span-12 lg:col-span-5 flex flex-col gap-6 items-start justify-start">
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
 
         {/* Right Columns: Links Grid */}
-        <div className="col-span-12 lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-8">
+        <div className="col-span-12 lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
           
           {/* Column 1: Product */}
           <div className="flex flex-col gap-4">
@@ -129,7 +129,7 @@ export default function Footer() {
       </div>
 
       {/* Subfooter bottom line */}
-      <div className="max-w-7xl mx-auto px-8 w-full relative z-10 border-t border-white/5 pt-8 mt-16 flex flex-col md:flex-row items-center justify-between gap-4 select-none">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10 border-t border-white/5 pt-6 md:pt-8 mt-12 md:mt-16 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 select-none">
         <span className="text-zinc-500 text-[10px] font-sans">
           &copy; {new Date().getFullYear()} Deskly Assistant. All rights reserved.
         </span>

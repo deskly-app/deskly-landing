@@ -108,12 +108,12 @@ export default function MultiOrbitSemiCircle() {
       : Math.max(32, baseWidth * 0.07);
 
   return (
-    <section className="py-36 md:py-48 relative w-full overflow-hidden bg-black">
-      <div className="relative flex flex-col items-center text-center z-10 px-6">
-        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-4 font-header leading-[1.2]">
+    <section className="py-20 sm:py-28 md:py-36 lg:py-48 relative w-full overflow-hidden bg-black">
+      <div className="relative flex flex-col items-center text-center z-10 px-5 md:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-white mb-3 md:mb-4 font-header leading-[1.2]">
           Connected Student Workspace
         </h2>
-        <p className="mb-16 max-w-2xl text-zinc-400 text-sm md:text-base font-sans font-normal leading-relaxed">
+        <p className="mb-10 md:mb-16 max-w-2xl text-zinc-400 text-sm md:text-base font-sans font-normal leading-relaxed">
           Deskly integrates with your development tools and popular utilities, bringing your credentials, updates, and workflows into a single dashboard.
         </p>
 
