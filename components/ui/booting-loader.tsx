@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function BootingLoader() {
+  const [progress, setProgress] = useState(0);
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
@@ -12,63 +13,98 @@ export default function BootingLoader() {
       document.body.style.overflow = "hidden";
     }
 
-    // Complete loading after 1.5 seconds
-    const timer = setTimeout(() => {
-      setIsDone(true);
-      if (typeof window !== "undefined") {
-        document.body.style.overflow = "";
-      }
-    }, 1500);
+    // organic progress interval
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        
+        // Organic progress increments: start fast, slow down as it gets closer to 100
+        let increment = 1;
+        if (prev < 40) {
+          increment = Math.floor(Math.random() * 8) + 6; // Fast start
+        } else if (prev < 80) {
+          increment = Math.floor(Math.random() * 5) + 3; // Steady middle
+        } else {
+          increment = Math.floor(Math.random() * 2) + 1; // Slow finish
+        }
+        
+        return Math.min(100, prev + increment);
+      });
+    }, 80);
 
     return () => {
-      clearTimeout(timer);
-      if (typeof window !== "undefined") {
-        document.body.style.overflow = "";
-      }
+      clearInterval(interval);
     };
   }, []);
+
+  // Once progress reaches 100%, trigger exit animation after a short hold
+  useEffect(() => {
+    if (progress === 100) {
+      const timer = setTimeout(() => {
+        setIsDone(true);
+        if (typeof window !== "undefined") {
+          document.body.style.overflow = "";
+        }
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, [progress]);
+
+  // Format progress with leading zeros to maintain typographic width (00 - 100)
+  const formattedProgress = progress < 10 ? `0${progress}` : `${progress}`;
 
   return (
     <AnimatePresence>
       {!isDone && (
         <motion.div
           key="boot-loader"
-          initial={{ opacity: 1 }}
+          initial={{ opacity: 1, y: "0%" }}
           exit={{ 
-            opacity: 0,
+            y: "-100%",
             transition: { 
-              duration: 0.6, 
-              ease: [0.16, 1, 0.3, 1] 
+              duration: 0.9, 
+              ease: [0.85, 0, 0.15, 1] // Dramatic curtain-slide bezier curve
             } 
           }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black select-none overflow-hidden"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black select-none overflow-hidden"
         >
-          {/* Minimalist central branding */}
-          <motion.div
-            initial={{ scale: 0.96, opacity: 0 }}
-            animate={{ 
-              scale: 1, 
-              opacity: 1,
-              transition: {
-                duration: 0.8,
-                ease: [0.16, 1, 0.3, 1]
-              }
-            }}
-            className="flex flex-col items-center gap-4"
-          >
-            <div className="relative flex items-center justify-center">
-              {/* Subtle blue background aura */}
-              <div className="absolute w-24 h-24 bg-blue-500/10 rounded-full blur-xl pointer-events-none" />
-              <img 
-                src="/app-logo.png" 
-                alt="Deskly Logo" 
-                className="h-16 w-auto relative z-10"
+          {/* Typographic Center Panel */}
+          <div className="flex flex-col items-center">
+            
+            {/* Big, clean numeric counter */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="text-8xl sm:text-[10rem] font-extralight tracking-tighter text-white font-sans tabular-nums leading-none"
+            >
+              {formattedProgress}
+            </motion.h1>
+
+            {/* Ultra-thin loading bar */}
+            <div className="w-36 h-[1px] bg-white/10 mt-8 overflow-hidden relative rounded-full">
+              <div 
+                className="h-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)] transition-all duration-150 ease-out" 
+                style={{ width: `${progress}%` }}
               />
             </div>
-            <span className="text-white font-medium text-lg tracking-[0.2em] font-sans uppercase">
-              DESKLY
-            </span>
-          </motion.div>
+
+            {/* Subtle Brand Logo/Text */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.3 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="mt-6 flex items-center gap-2"
+            >
+              <img src="/app-logo.png" alt="Deskly" className="h-3.5 w-auto" />
+              <span className="text-[9px] tracking-[0.35em] text-white uppercase font-sans font-medium">
+                DESKLY
+              </span>
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
