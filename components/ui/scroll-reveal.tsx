@@ -12,14 +12,15 @@ interface ScrollRevealProps {
 export default function ScrollReveal({ children, delay = 0, duration = 900 }: ScrollRevealProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{
         duration: duration / 1000, // Convert ms to seconds
         delay: delay / 1000, // Convert ms to seconds
         ease: [0.16, 1, 0.3, 1], // Premium Apple iOS ease-out curve
       }}
+      className="w-full"
     >
       {children}
     </motion.div>
