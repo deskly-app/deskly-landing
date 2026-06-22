@@ -10,10 +10,9 @@ import {
   Monitor, 
   Terminal, 
   ArrowLeft,
-  Sparkles,
-  FileText,
   Copy,
-  Check
+  Check,
+  PlusIcon
 } from "lucide-react";
 
 interface ReleaseFile {
@@ -21,8 +20,8 @@ interface ReleaseFile {
   size: string;
   checksum: string;
   url: string;
-  platform: "mac" | "windows" | "linux" | "other";
-  isSig: boolean;
+  platform: "mac" | "windows" | "linux";
+  platformName: string;
 }
 
 const FALLBACK_RELEASE_VERSION = "v2.0.1";
@@ -35,7 +34,7 @@ const FALLBACK_FILES: ReleaseFile[] = [
     checksum: "9177970cfe1bdc5759d9bd5506e84348437bf6a3f3fef0a85b62f8246d364d39",
     url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly_2.0.1_aarch64.dmg",
     platform: "mac",
-    isSig: false
+    platformName: "macOS (Apple Silicon)"
   },
   {
     name: "Deskly.app.tar.gz",
@@ -43,15 +42,7 @@ const FALLBACK_FILES: ReleaseFile[] = [
     checksum: "cd34869ae9c30a0bb1ffb3a8505c98e85fccd26838d20e75b265fda806ed0214",
     url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly.app.tar.gz",
     platform: "mac",
-    isSig: false
-  },
-  {
-    name: "Deskly.app.tar.gz.sig",
-    size: "404 Bytes",
-    checksum: "36bbf39a408ff73196eb8a3096bfb1c81c559a943efb562f7ccda09a33880ef7",
-    url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly.app.tar.gz.sig",
-    platform: "mac",
-    isSig: true
+    platformName: "macOS (Intel/Portable)"
   },
   {
     name: "Deskly_2.0.1_x64_en-US.msi",
@@ -59,15 +50,7 @@ const FALLBACK_FILES: ReleaseFile[] = [
     checksum: "1f5fbe8ca2f2f8845b1d76f9b7c1c721d7e7fe9c58954f1a60119f6983961db9",
     url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly_2.0.1_x64_en-US.msi",
     platform: "windows",
-    isSig: false
-  },
-  {
-    name: "Deskly_2.0.1_x64_en-US.msi.sig",
-    size: "416 Bytes",
-    checksum: "d2bec67f1c3ac571d10813652fa52759abc0f0af1c0c50cb4fa3133d3458c456",
-    url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly_2.0.1_x64_en-US.msi.sig",
-    platform: "windows",
-    isSig: true
+    platformName: "Windows (MSI Installer)"
   },
   {
     name: "Deskly_2.0.1_x64-setup.exe",
@@ -75,15 +58,7 @@ const FALLBACK_FILES: ReleaseFile[] = [
     checksum: "d8288b5ab20aa4a495667c2471b84197d7c8059ee0c5bc531ff8cd797320cd03",
     url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly_2.0.1_x64-setup.exe",
     platform: "windows",
-    isSig: false
-  },
-  {
-    name: "Deskly_2.0.1_x64-setup.exe.sig",
-    size: "416 Bytes",
-    checksum: "36109ee38e3ccbf06072259e6fd7f29be0ce5b04f9be9b97dcb43927f1bc6ae9",
-    url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly_2.0.1_x64-setup.exe.sig",
-    platform: "windows",
-    isSig: true
+    platformName: "Windows (EXE Installer)"
   },
   {
     name: "Deskly_2.0.1_amd64.AppImage",
@@ -91,15 +66,7 @@ const FALLBACK_FILES: ReleaseFile[] = [
     checksum: "0099b39692e8d72ee9748df07ac9ad7476e20ff8f6d2e91e9e4484cb1ac59269",
     url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly_2.0.1_amd64.AppImage",
     platform: "linux",
-    isSig: false
-  },
-  {
-    name: "Deskly_2.0.1_amd64.AppImage.sig",
-    size: "416 Bytes",
-    checksum: "028e6366d2d774fbcc7edf69b01f2df64b1a9f15029b1cb684685dc4edf9b8b0",
-    url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly_2.0.1_amd64.AppImage.sig",
-    platform: "linux",
-    isSig: true
+    platformName: "Linux (AppImage)"
   },
   {
     name: "Deskly_2.0.1_amd64.deb",
@@ -107,7 +74,7 @@ const FALLBACK_FILES: ReleaseFile[] = [
     checksum: "8be39a3ab12f9b1f3cd4d5a860952f7117c8e8adc4d84f944fd90ed045447d28",
     url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly_2.0.1_amd64.deb",
     platform: "linux",
-    isSig: false
+    platformName: "Linux (Debian/Deb)"
   },
   {
     name: "Deskly-2.0.1-1.x86_64.rpm",
@@ -115,56 +82,24 @@ const FALLBACK_FILES: ReleaseFile[] = [
     checksum: "d3b827942ad162c4d008defe2487e9195d602f5fc3cc6a13b156045dfaa5aeab",
     url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/Deskly-2.0.1-1.x86_64.rpm",
     platform: "linux",
-    isSig: false
-  },
-  {
-    name: "latest.json",
-    size: "2.33 KB",
-    checksum: "e16af4c4b80087704d76e85c3e94685e51034192341392d048da05c3358149f6",
-    url: "https://github.com/Vishal-770/deskly-tauri/releases/download/v2.0.1/latest.json",
-    platform: "other",
-    isSig: false
+    platformName: "Linux (Fedora/RPM)"
   }
 ];
 
 const CHECKSUM_MAP: Record<string, string> = {
   "Deskly-2.0.1-1.x86_64.rpm": "d3b827942ad162c4d008defe2487e9195d602f5fc3cc6a13b156045dfaa5aeab",
   "Deskly.app.tar.gz": "cd34869ae9c30a0bb1ffb3a8505c98e85fccd26838d20e75b265fda806ed0214",
-  "Deskly.app.tar.gz.sig": "36bbf39a408ff73196eb8a3096bfb1c81c559a943efb562f7ccda09a33880ef7",
   "Deskly_2.0.1_aarch64.dmg": "9177970cfe1bdc5759d9bd5506e84348437bf6a3f3fef0a85b62f8246d364d39",
   "Deskly_2.0.1_amd64.AppImage": "0099b39692e8d72ee9748df07ac9ad7476e20ff8f6d2e91e9e4484cb1ac59269",
-  "Deskly_2.0.1_amd64.AppImage.sig": "028e6366d2d774fbcc7edf69b01f2df64b1a9f15029b1cb684685dc4edf9b8b0",
   "Deskly_2.0.1_amd64.deb": "8be39a3ab12f9b1f3cd4d5a860952f7117c8e8adc4d84f944fd90ed045447d28",
   "Deskly_2.0.1_x64-setup.exe": "d8288b5ab20aa4a495667c2471b84197d7c8059ee0c5bc531ff8cd797320cd03",
-  "Deskly_2.0.1_x64-setup.exe.sig": "36109ee38e3ccbf06072259e6fd7f29be0ce5b04f9be9b97dcb43927f1bc6ae9",
-  "Deskly_2.0.1_x64_en-US.msi": "1f5fbe8ca2f2f8845b1d76f9b7c1c721d7e7fe9c58954f1a60119f6983961db9",
-  "Deskly_2.0.1_x64_en-US.msi.sig": "d2bec67f1c3ac571d10813652fa52759abc0f0af1c0c50cb4fa3133d3458c456",
-  "latest.json": "e16af4c4b80087704d76e85c3e94685e51034192341392d048da05c3358149f6"
+  "Deskly_2.0.1_x64_en-US.msi": "1f5fbe8ca2f2f8845b1d76f9b7c1c721d7e7fe9c58954f1a60119f6983961db9"
 };
 
 function formatSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} Bytes`;
   if (bytes < 1048576) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / 1048576).toFixed(2)} MB`;
-}
-
-function formatTimeAgo(dateString: string): string {
-  try {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffMs = now.getTime() - date.getTime();
-    const diffSec = Math.floor(diffMs / 1000);
-    const diffMin = Math.floor(diffSec / 60);
-    const diffHr = Math.floor(diffMin / 60);
-    const diffDays = Math.floor(diffHr / 24);
-
-    if (diffDays > 0) return `${diffDays} day${diffDays > 1 ? "s" : ""} ago`;
-    if (diffHr > 0) return `${diffHr} hour${diffHr > 1 ? "s" : ""} ago`;
-    if (diffMin > 0) return `${diffMin} minute${diffMin > 1 ? "s" : ""} ago`;
-    return "just now";
-  } catch (e) {
-    return "recently";
-  }
 }
 
 function parseChecksumFromBody(body: string, fileName: string): string {
@@ -176,9 +111,21 @@ function parseChecksumFromBody(body: string, fileName: string): string {
   return "";
 }
 
+function isInstallerFile(name: string): boolean {
+  const lower = name.toLowerCase();
+  return (
+    lower.endsWith(".dmg") ||
+    lower.endsWith(".msi") ||
+    lower.endsWith(".exe") ||
+    lower.endsWith(".appimage") ||
+    lower.endsWith(".deb") ||
+    lower.endsWith(".rpm") ||
+    (lower.endsWith(".tar.gz") && lower.startsWith("deskly"))
+  ) && !lower.endsWith(".sig");
+}
+
 export default function DownloadPage() {
   const [version, setVersion] = useState<string>(FALLBACK_RELEASE_VERSION);
-  const [publishedAt, setPublishedAt] = useState<string>(FALLBACK_PUBLISHED_AT);
   const [filesList, setFilesList] = useState<ReleaseFile[]>(FALLBACK_FILES);
   const [loading, setLoading] = useState<boolean>(true);
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -188,7 +135,7 @@ export default function DownloadPage() {
     async function fetchRelease() {
       try {
         const res = await fetch("https://api.github.com/repos/Vishal-770/deskly-tauri/releases/latest");
-        if (!res.ok) throw new Error("API Network Limit");
+        if (!res.ok) throw new Error("API Limit");
         const data = await res.json();
         if (!active) return;
 
@@ -196,59 +143,43 @@ export default function DownloadPage() {
         const releaseBody = data.body || "";
         const assets = data.assets || [];
 
-        const dynamicFiles: ReleaseFile[] = assets.map((asset: any) => {
-          const name = asset.name || "";
-          const sizeStr = formatSize(asset.size || 0);
-          const url = asset.browser_download_url;
-          const isSig = name.endsWith(".sig");
+        const installers: ReleaseFile[] = assets
+          .filter((asset: any) => isInstallerFile(asset.name || ""))
+          .map((asset: any) => {
+            const name = asset.name || "";
+            const sizeStr = formatSize(asset.size || 0);
+            const url = asset.browser_download_url;
 
-          let platform: "mac" | "windows" | "linux" | "other" = "other";
-          if (name.includes("aarch64") || name.endsWith(".dmg") || name.includes("tar.gz")) {
-            platform = "mac";
-          } else if (name.includes(".msi") || name.includes(".exe")) {
-            platform = "windows";
-          } else if (name.includes(".AppImage") || name.includes(".deb") || name.includes(".rpm")) {
-            platform = "linux";
-          }
+            let platform: "mac" | "windows" | "linux" = "windows";
+            let platformName = "Windows Binary";
+            if (name.includes("aarch64") || name.endsWith(".dmg") || name.includes("tar.gz")) {
+              platform = "mac";
+              platformName = name.includes("aarch64") ? "macOS (Apple Silicon)" : "macOS (Intel/Portable)";
+            } else if (name.includes(".msi") || name.includes(".exe")) {
+              platform = "windows";
+              platformName = name.includes(".msi") ? "Windows (MSI Installer)" : "Windows (EXE Installer)";
+            } else if (name.includes(".AppImage") || name.includes(".deb") || name.includes(".rpm")) {
+              platform = "linux";
+              if (name.includes(".AppImage")) platformName = "Linux (AppImage)";
+              else if (name.includes(".deb")) platformName = "Linux (Debian/Deb)";
+              else platformName = "Linux (Fedora/RPM)";
+            }
 
-          let checksum = parseChecksumFromBody(releaseBody, name);
-          if (!checksum && CHECKSUM_MAP[name]) {
-            checksum = CHECKSUM_MAP[name];
-          }
+            let checksum = parseChecksumFromBody(releaseBody, name);
+            if (!checksum && CHECKSUM_MAP[name]) {
+              checksum = CHECKSUM_MAP[name];
+            }
 
-          return { name, size: sizeStr, checksum, url, platform, isSig };
-        });
-
-        // Append GitHub default source codes
-        dynamicFiles.push({
-          name: "Source code (zip)",
-          size: "Source",
-          checksum: "",
-          url: `https://github.com/Vishal-770/deskly-tauri/archive/refs/tags/${latestVersion}.zip`,
-          platform: "other",
-          isSig: false
-        });
-        dynamicFiles.push({
-          name: "Source code (tar.gz)",
-          size: "Source",
-          checksum: "",
-          url: `https://github.com/Vishal-770/deskly-tauri/archive/refs/tags/${latestVersion}.tar.gz`,
-          platform: "other",
-          isSig: false
-        });
-
-        // Sort files to put signatures at the bottom and primary packages at the top
-        const sorted = dynamicFiles.sort((a, b) => {
-          if (a.isSig !== b.isSig) return a.isSig ? 1 : -1;
-          return a.name.localeCompare(b.name);
-        });
+            return { name, size: sizeStr, checksum, url, platform, platformName };
+          });
 
         setVersion(latestVersion);
-        setPublishedAt(data.published_at || FALLBACK_PUBLISHED_AT);
-        setFilesList(sorted);
+        if (installers.length > 0) {
+          setFilesList(installers);
+        }
         setLoading(false);
       } catch (err) {
-        console.warn("Using local release assets:", err);
+        console.warn("Using fallback local release assets:", err);
         setLoading(false);
       }
     }
@@ -262,13 +193,11 @@ export default function DownloadPage() {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
-  const getPlatformIcon = (platform: "mac" | "windows" | "linux" | "other", name: string) => {
-    if (name.includes(".sig")) return <FileText className="w-4 h-4 text-zinc-500" />;
+  const getPlatformIcon = (platform: "mac" | "windows" | "linux") => {
     switch (platform) {
       case "mac": return <Apple className="w-4 h-4 text-zinc-300" />;
       case "windows": return <Monitor className="w-4 h-4 text-zinc-300" />;
       case "linux": return <Terminal className="w-4 h-4 text-zinc-300" />;
-      default: return <FileText className="w-4 h-4 text-zinc-300" />;
     }
   };
 
@@ -290,13 +219,11 @@ export default function DownloadPage() {
       <header className="absolute top-0 left-0 w-full z-50">
         <ScrollReveal duration={1000} delay={100} margin="0px">
           <div className="max-w-7xl mx-auto px-5 md:px-8 py-4 md:py-5 flex items-center justify-between">
-            {/* Logo */}
             <a href="/" className="flex items-center gap-2.5 cursor-pointer">
               <img src="/app-logo.png" alt="Deskly Logo" className="h-7 md:h-8 w-auto" />
               <span className="text-white font-semibold text-sm md:text-base tracking-wider font-sans">Deskly</span>
             </a>
 
-            {/* Navigation back */}
             <a
               href="/"
               className="flex items-center gap-1.5 text-zinc-400 hover:text-white text-xs font-medium transition-colors font-sans"
@@ -309,21 +236,16 @@ export default function DownloadPage() {
       </header>
 
       {/* Main Content */}
-      <main className="relative z-10 flex-grow pt-32 md:pt-40 pb-28 max-w-5xl mx-auto px-5 md:px-8 w-full flex flex-col items-center">
+      <main className="relative z-10 flex-grow pt-32 md:pt-40 pb-28 max-w-4xl mx-auto px-5 md:px-8 w-full flex flex-col items-center">
         
         {/* Title */}
         <ScrollReveal>
-          <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-[11px] font-semibold text-blue-400 mb-6 tracking-wide select-none font-sans uppercase">
-              <Sparkles className="w-3 h-3 animate-pulse" />
-              Latest Release — {version} ({formatTimeAgo(publishedAt)})
-            </div>
-            
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4 font-header leading-tight">
-              Downloads
+          <div className="text-center max-w-xl mx-auto mb-12 md:mb-16">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-3 font-header leading-tight">
+              Download Deskly
             </h1>
             <p className="text-zinc-400 text-xs sm:text-sm font-sans font-normal max-w-md mx-auto">
-              Get the latest build of the Deskly Desktop Client. Direct downloads, package sizes, and hashes.
+              Get the latest stable build of the Deskly Client ({version}).
             </p>
           </div>
         </ScrollReveal>
@@ -336,17 +258,26 @@ export default function DownloadPage() {
               <div className="h-10 bg-white/10 rounded"></div>
               <div className="h-10 bg-white/10 rounded"></div>
               <div className="h-10 bg-white/10 rounded"></div>
-              <div className="h-10 bg-white/10 rounded"></div>
             </div>
           ) : (
-            <div className="w-full bg-[#0a0d16]/30 border border-white/5 rounded-xl backdrop-blur-md shadow-2xl overflow-hidden">
+            <div className="relative w-full border-y border-white/10 bg-[radial-gradient(45%_80%_at_50%_0%,rgba(37,99,235,0.07),transparent)]">
+              {/* Plus corner markers */}
+              <PlusIcon className="absolute top-[-12px] left-[-12px] z-10 size-6 text-blue-500/50" strokeWidth={1} />
+              <PlusIcon className="absolute top-[-12px] right-[-12px] z-10 size-6 text-blue-500/50" strokeWidth={1} />
+              <PlusIcon className="absolute bottom-[-12px] left-[-12px] z-10 size-6 text-blue-500/50" strokeWidth={1} />
+              <PlusIcon className="absolute bottom-[-12px] right-[-12px] z-10 size-6 text-blue-500/50" strokeWidth={1} />
+
+              {/* Vertical side guides */}
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-px border-l border-white/10" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-px border-r border-white/10" />
+
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="border-b border-white/10 bg-white/[0.01]">
-                      <th className="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest font-sans">File Name</th>
+                      <th className="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest font-sans">Platform</th>
+                      <th className="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest font-sans">Installer File</th>
                       <th className="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest font-sans text-right">Size</th>
-                      <th className="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest font-sans hidden md:table-cell">SHA-256 Checksum</th>
                       <th className="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest font-sans text-center">Download</th>
                     </tr>
                   </thead>
@@ -354,22 +285,46 @@ export default function DownloadPage() {
                     {filesList.map((file, idx) => (
                       <tr 
                         key={idx} 
-                        className={`hover:bg-white/[0.01] transition-colors duration-150 ${file.isSig ? "opacity-60" : ""}`}
+                        className="hover:bg-white/[0.01] transition-colors duration-150"
                       >
-                        {/* Filename with Platform Icon */}
+                        {/* Platform Name and Icon */}
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
                             <div className="shrink-0 p-1.5 rounded bg-white/[0.02] border border-white/5">
-                              {getPlatformIcon(file.platform, file.name)}
+                              {getPlatformIcon(file.platform)}
                             </div>
-                            <div className="overflow-hidden">
-                              <a 
-                                href={file.url}
-                                className="text-white hover:text-blue-400 font-semibold text-xs font-mono truncate block"
-                              >
-                                {file.name}
-                              </a>
-                            </div>
+                            <span className="text-xs font-semibold text-zinc-300 font-sans whitespace-nowrap">
+                              {file.platformName}
+                            </span>
+                          </div>
+                        </td>
+
+                        {/* Filename and Checksum details */}
+                        <td className="px-6 py-4 max-w-sm">
+                          <div className="overflow-hidden space-y-1">
+                            <a 
+                              href={file.url}
+                              className="text-white hover:text-blue-400 font-semibold text-xs font-mono truncate block"
+                            >
+                              {file.name}
+                            </a>
+                            {file.checksum && (
+                              <div className="flex items-center gap-1.5 text-[9px] font-mono text-zinc-500">
+                                <span className="select-none uppercase text-zinc-600 font-semibold shrink-0">SHA256:</span>
+                                <span className="truncate max-w-[180px] sm:max-w-xs">{file.checksum}</span>
+                                <button
+                                  onClick={() => handleCopyChecksum(file.name, file.checksum)}
+                                  className="shrink-0 p-0.5 rounded hover:bg-white/5 hover:text-white text-zinc-600 transition-all cursor-pointer"
+                                  title="Copy Checksum"
+                                >
+                                  {copiedId === file.name ? (
+                                    <Check className="w-2.5 h-2.5 text-green-400" />
+                                  ) : (
+                                    <Copy className="w-2.5 h-2.5" />
+                                  )}
+                                </button>
+                              </div>
+                            )}
                           </div>
                         </td>
 
@@ -378,30 +333,6 @@ export default function DownloadPage() {
                           <span className="text-[11px] text-zinc-400 font-mono whitespace-nowrap bg-white/[0.02] border border-white/5 px-2 py-0.5 rounded">
                             {file.size}
                           </span>
-                        </td>
-
-                        {/* SHA256 Hash with Copy */}
-                        <td className="px-6 py-4 hidden md:table-cell max-w-xs">
-                          {file.checksum ? (
-                            <div className="flex items-center gap-2">
-                              <code className="text-[10px] text-zinc-500 font-mono truncate select-all">
-                                {file.checksum}
-                              </code>
-                              <button
-                                onClick={() => handleCopyChecksum(file.name, file.checksum)}
-                                className="shrink-0 p-1 rounded hover:bg-white/5 hover:text-white text-zinc-600 transition-all cursor-pointer"
-                                title="Copy Checksum"
-                              >
-                                {copiedId === file.name ? (
-                                  <Check className="w-3 h-3 text-green-400" />
-                                ) : (
-                                  <Copy className="w-3 h-3" />
-                                )}
-                              </button>
-                            </div>
-                          ) : (
-                            <span className="text-[10px] text-zinc-600 italic">No checksum</span>
-                          )}
                         </td>
 
                         {/* Action Link */}
