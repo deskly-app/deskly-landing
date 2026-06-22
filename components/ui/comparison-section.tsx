@@ -127,7 +127,7 @@ export default function ComparisonSection() {
             </div>
             <div className="px-6 md:px-8 py-6 border-l border-blue-500/15 flex items-center">
               <a
-                href="#"
+                href="/download"
                 className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-5 py-2 rounded-[4px] text-xs font-medium shadow-lg shadow-blue-500/20 active:scale-95 transition-all font-sans whitespace-nowrap"
               >
                 Download Free

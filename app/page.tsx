@@ -120,10 +120,10 @@ export default function Page() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
-              <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-3 rounded-[4px] text-sm font-medium shadow-lg shadow-blue-500/20 active:scale-95 transition-all cursor-pointer font-sans">
+              <a href="/download" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-3 rounded-[4px] text-sm font-medium shadow-lg shadow-blue-500/20 active:scale-95 transition-all cursor-pointer font-sans">
                 Download Free
                 <span>✦</span>
-              </button>
+              </a>
               <a href="#architecture" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 rounded-[4px] text-sm font-medium active:scale-95 transition-all cursor-pointer font-sans">
                 View Architecture
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
