@@ -19,8 +19,8 @@ const MODULES = [
   { name: "CAPTCHA Classifier", icon: Cpu },
   { name: "OS Keyring (Keychain)", icon: Shield },
   { name: "Attendance Predictor", icon: GraduationCap },
-  { name: "Weekly Slot Formatter", icon: Calendar },
-  { name: "Smart OS Alerts", icon: Bell },
+  { name: "Google Calendar Sync", icon: Calendar },
+  { name: "ICS Calendar Exporter", icon: Calendar },
   { name: "Academic Scrapers", icon: Database },
   { name: "Student Profile Hub", icon: User },
   { name: "Payment Receipts PDF", icon: CreditCard },
@@ -131,7 +131,7 @@ export default function MultiOrbitSemiCircle() {
           Modular Desktop Client Architecture
         </h2>
         <p className="mb-10 md:mb-16 max-w-2xl text-zinc-400 text-sm md:text-base font-sans font-normal leading-relaxed">
-          Hover over each node to explore Deskly's submodules. From offline captcha classifiers to secure hardware keyrings, the Rust backend drives secure integrations natively.
+          Hover over each node to explore Deskly's submodules. Built with native Google Calendar synchronization and cross-platform ICS batch exports supporting Apple Calendar, Outlook, and more.
         </p>
 
         <div

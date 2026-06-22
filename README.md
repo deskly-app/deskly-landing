@@ -1,6 +1,6 @@
 # Deskly Landing Page
 
-Official landing page for [Deskly](https://github.com/Vishal-770/Deskly) - the open-source desktop app for VIT Chennai students.
+Official landing page for [Deskly](https://github.com/Vishal-770/deskly-tauri/) - the open-source desktop app for VIT Chennai students.
 
 ## 🚀 Live Site 
 

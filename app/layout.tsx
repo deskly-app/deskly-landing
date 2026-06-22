@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Deskly Contributors",
-      url: "https://github.com/Vishal-770/Deskly",
+      url: "https://github.com/Vishal-770/deskly-tauri/",
     },
   ],
   creator: "Deskly Contributors",
@@ -138,7 +138,7 @@ export default function RootLayout({
         description:
           "Free open-source desktop application for VIT Chennai students with real-time VTOP access, attendance tracking, and timetable management.",
         softwareVersion: "1.2.0",
-        downloadUrl: "https://github.com/Vishal-770/Deskly/releases",
+        downloadUrl: "https://github.com/Vishal-770/deskly-tauri/releases",
         screenshot: "https://deskly.vishaldev.space/main.png",
         aggregateRating: {
           "@type": "AggregateRating",
@@ -148,7 +148,7 @@ export default function RootLayout({
         author: {
           "@type": "Organization",
           name: "Deskly Contributors",
-          url: "https://github.com/Vishal-770/Deskly",
+          url: "https://github.com/Vishal-770/deskly-tauri/",
         },
       },
       {
@@ -171,7 +171,7 @@ export default function RootLayout({
         name: "Deskly",
         url: "https://deskly.vishaldev.space",
         logo: "https://deskly.vishaldev.space/app-logo.png",
-        sameAs: ["https://github.com/Vishal-770/Deskly"],
+        sameAs: ["https://github.com/Vishal-770/deskly-tauri/"],
       },
     ],
   };

@@ -85,7 +85,7 @@ export default function Page() {
 
               {/* GitHub — icon only on mobile, icon + text on desktop */}
               <a
-                href="https://github.com/Vishal-770/Deskly"
+                href="https://github.com/Vishal-770/deskly-tauri/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-3 md:px-4 py-2 rounded-[4px] text-xs font-medium shadow-md shadow-blue-500/10 active:scale-95 transition-all cursor-pointer font-sans"
@@ -110,12 +110,12 @@ export default function Page() {
 
             {/* Title */}
             <h1 className="text-white font-semibold text-2xl sm:text-3xl md:text-5xl lg:text-6xl max-w-4xl leading-[1.12] mb-3 md:mb-4 tracking-tight font-header">
-              Track Attendance, Timetable &amp; VTOP in One Focused App
+              Your VTOP Student Portal, Reimagined as a Premium Desktop Client
             </h1>
 
             {/* Description */}
             <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-xl md:max-w-2xl mb-6 md:mb-7 leading-relaxed font-sans font-normal px-2">
-              Deskly is a secure open-source desktop assistant for VIT Chennai students, automating your session logins and keeping your academics on track.
+              Ditch the browser tabs. Deskly is an open-source native desktop app built on Rust and Tauri that automates logins, resolves VTOP CAPTCHAs offline, and syncs timetables.
             </p>
 
             {/* Action Buttons */}
