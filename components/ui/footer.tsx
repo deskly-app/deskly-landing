@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRightIcon, Github } from "lucide-react";
+import { ArrowRightIcon, Github, Download } from "lucide-react";
 import { GradientBars } from "@/components/ui/gradient-bars-background";
 
 export default function Footer() {
@@ -58,11 +58,11 @@ export default function Footer() {
 
           <div className="flex flex-wrap items-center gap-3 mt-2">
             <a 
-              href="#"
+              href="/download"
               className="bg-blue-600 hover:bg-blue-500 text-white rounded-[4px] px-5 py-2.5 text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-lg shadow-blue-500/25 active:scale-95 transition-all cursor-pointer font-sans"
             >
               Get Started Free
-              <span className="text-[10px] select-none">✦</span>
+              <Download className="w-3.5 h-3.5" />
             </a>
             
             <a 

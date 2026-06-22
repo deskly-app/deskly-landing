@@ -10,8 +10,6 @@ import {
   Monitor, 
   Terminal, 
   ArrowLeft,
-  Copy,
-  Check,
   PlusIcon
 } from "lucide-react";
 
@@ -128,7 +126,6 @@ export default function DownloadPage() {
   const [version, setVersion] = useState<string>(FALLBACK_RELEASE_VERSION);
   const [filesList, setFilesList] = useState<ReleaseFile[]>(FALLBACK_FILES);
   const [loading, setLoading] = useState<boolean>(true);
-  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -186,12 +183,6 @@ export default function DownloadPage() {
     fetchRelease();
     return () => { active = false; };
   }, []);
-
-  const handleCopyChecksum = (name: string, hash: string) => {
-    navigator.clipboard.writeText(hash);
-    setCopiedId(name);
-    setTimeout(() => setCopiedId(null), 2000);
-  };
 
   const getPlatformIcon = (platform: "mac" | "windows" | "linux") => {
     switch (platform) {
@@ -271,7 +262,49 @@ export default function DownloadPage() {
               <div className="pointer-events-none absolute inset-y-0 left-0 w-px border-l border-white/10" />
               <div className="pointer-events-none absolute inset-y-0 right-0 w-px border-r border-white/10" />
 
-              <div className="overflow-x-auto">
+              {/* Mobile Card-List View (Visible on mobile, hidden on desktop) */}
+              <div className="block md:hidden divide-y divide-white/5 relative z-20">
+                {filesList.map((file, idx) => (
+                  <div 
+                    key={idx} 
+                    className="p-5 flex flex-col gap-3 hover:bg-white/[0.01] transition-colors duration-150"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <div className="shrink-0 p-1.5 rounded bg-white/[0.02] border border-white/5">
+                          {getPlatformIcon(file.platform)}
+                        </div>
+                        <span className="text-xs font-semibold text-zinc-300 font-sans">
+                          {file.platformName}
+                        </span>
+                      </div>
+                      <span className="text-[10px] text-zinc-400 font-mono bg-white/[0.02] border border-white/5 px-2 py-0.5 rounded">
+                        {file.size}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-between gap-4 mt-1">
+                      <a 
+                        href={file.url}
+                        className="text-white hover:text-blue-400 font-semibold text-xs font-mono truncate block flex-1 pr-2"
+                        title={file.name}
+                      >
+                        {file.name}
+                      </a>
+                      <a
+                        href={file.url}
+                        className="inline-flex items-center justify-center p-2 rounded-full text-zinc-400 hover:text-white hover:bg-blue-600/10 border border-white/5 hover:border-blue-500/20 transition-all cursor-pointer shrink-0"
+                        title="Download File"
+                      >
+                        <Download className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop Table View (Hidden on mobile, visible on desktop) */}
+              <div className="hidden md:block overflow-x-auto scrollbar-none">
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="border-b border-white/10 bg-white/[0.01]">
@@ -299,32 +332,15 @@ export default function DownloadPage() {
                           </div>
                         </td>
 
-                        {/* Filename and Checksum details */}
+                        {/* Filename details */}
                         <td className="px-6 py-4 max-w-sm">
-                          <div className="overflow-hidden space-y-1">
+                          <div className="overflow-hidden">
                             <a 
                               href={file.url}
                               className="text-white hover:text-blue-400 font-semibold text-xs font-mono truncate block"
                             >
                               {file.name}
                             </a>
-                            {file.checksum && (
-                              <div className="flex items-center gap-1.5 text-[9px] font-mono text-zinc-500">
-                                <span className="select-none uppercase text-zinc-600 font-semibold shrink-0">SHA256:</span>
-                                <span className="truncate max-w-[180px] sm:max-w-xs">{file.checksum}</span>
-                                <button
-                                  onClick={() => handleCopyChecksum(file.name, file.checksum)}
-                                  className="shrink-0 p-0.5 rounded hover:bg-white/5 hover:text-white text-zinc-600 transition-all cursor-pointer"
-                                  title="Copy Checksum"
-                                >
-                                  {copiedId === file.name ? (
-                                    <Check className="w-2.5 h-2.5 text-green-400" />
-                                  ) : (
-                                    <Copy className="w-2.5 h-2.5" />
-                                  )}
-                                </button>
-                              </div>
-                            )}
                           </div>
                         </td>
 

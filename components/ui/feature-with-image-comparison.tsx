@@ -73,7 +73,6 @@ export default function FeatureWithImageComparison() {
               </div>
               {/* Actions Placeholder */}
               <div className="flex items-center gap-2 text-white/30">
-                <span className="text-[10px] select-none">✦</span>
               </div>
             </div>
 

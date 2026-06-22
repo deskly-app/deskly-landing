@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, X, PlusIcon, RotateCcw, Shield, Calendar, Bell, Zap, Database, Sun, Moon } from "lucide-react";
+import { Check, X, PlusIcon, RotateCcw, Shield, Calendar, Bell, Zap, Database, Sun, Moon, Download } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const rows = [
@@ -131,7 +131,7 @@ export default function ComparisonSection() {
                 className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-5 py-2 rounded-[4px] text-xs font-medium shadow-lg shadow-blue-500/20 active:scale-95 transition-all font-sans whitespace-nowrap"
               >
                 Download Free
-                <span>✦</span>
+                <Download className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRightIcon, PlusIcon } from "lucide-react";
+import { PlusIcon, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function CallToAction() {
@@ -70,7 +70,7 @@ export default function CallToAction() {
               asChild
             >
               <a href="/download">
-                Download Free <ArrowRightIcon className="size-4 ml-1.5" />
+                Download Free <Download className="size-4 ml-1.5" />
               </a>
             </Button>
           </div>

@@ -9,7 +9,7 @@ import CallToAction from "@/components/ui/cta-3";
 import Footer from "@/components/ui/footer";
 import ScrollReveal from "@/components/ui/scroll-reveal";
 import ComparisonSection from "@/components/ui/comparison-section";
-import { Shield, BookOpen, Clock, ShieldAlert, Cpu, Sparkles } from "lucide-react";
+import { Shield, BookOpen, Clock, ShieldAlert, Cpu, RefreshCw, Download } from "lucide-react";
 import BootingLoader from "@/components/ui/booting-loader";
 
 const gridFeatures = [
@@ -36,7 +36,7 @@ const gridFeatures = [
   {
     title: "Persistent Session Client",
     description: "Wraps a reqwest HTTP client to persist background session cookies, preventing automatic logouts during research tasks.",
-    icon: Sparkles,
+    icon: RefreshCw,
   },
   {
     title: "Full Academic Scrapers",
@@ -104,7 +104,6 @@ export default function Page() {
           <div className="relative z-20 flex flex-col items-center justify-start text-center px-5 pt-24 sm:pt-28 md:pt-36 max-w-5xl mx-auto">
             {/* Subtitle */}
             <div className="flex items-center gap-1.5 text-blue-400/95 text-[10px] sm:text-xs md:text-sm font-medium tracking-wider uppercase mb-3 md:mb-4 font-header">
-              <span>✦</span>
               <span>Simplify Your Student Life</span>
             </div>
 
@@ -122,7 +121,7 @@ export default function Page() {
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <a href="/download" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-3 rounded-[4px] text-sm font-medium shadow-lg shadow-blue-500/20 active:scale-95 transition-all cursor-pointer font-sans">
                 Download Free
-                <span>✦</span>
+                <Download className="w-4 h-4" />
               </a>
               <a href="#architecture" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 rounded-[4px] text-sm font-medium active:scale-95 transition-all cursor-pointer font-sans">
                 View Architecture
@@ -149,7 +148,6 @@ export default function Page() {
                   deskly.app
                 </div>
                 <div className="flex items-center gap-2 text-white/30">
-                  <span className="text-[10px] select-none">✦</span>
                 </div>
               </div>
               <div className="w-full bg-black">
@@ -161,7 +159,7 @@ export default function Page() {
       </section>
 
       {/* Features Section */}
-      <section className="relative bg-black py-20 sm:py-28 md:py-36 lg:py-48 z-20 flex flex-col items-center flex-1">
+      <section id="features" className="relative bg-black py-20 sm:py-28 md:py-36 lg:py-48 z-20 flex flex-col items-center flex-1">
         <div
           className="absolute inset-0 pointer-events-none z-0"
           style={{ background: `radial-gradient(ellipse 80% 70% at 50% 55%, rgba(37, 99, 235, 0.24) 0%, rgba(29, 78, 216, 0.08) 50%, transparent 85%)` }}
@@ -233,12 +231,16 @@ export default function Page() {
 
       {/* Comparison Section */}
       <ScrollReveal>
-        <ComparisonSection />
+        <div id="pricing" className="w-full">
+          <ComparisonSection />
+        </div>
       </ScrollReveal>
 
       {/* Multi Orbit Semi-Circle Section */}
       <ScrollReveal>
-        <MultiOrbitSemiCircle />
+        <div id="how-it-works" className="w-full">
+          <MultiOrbitSemiCircle />
+        </div>
       </ScrollReveal>
 
       {/* Feature Image Comparison Section */}
@@ -253,7 +255,11 @@ export default function Page() {
 
       {/* Footer Section */}
       <ScrollReveal delay={100}>
-        <Footer />
+        <div id="company" className="w-full">
+          <div id="resource" className="w-full">
+            <Footer />
+          </div>
+        </div>
       </ScrollReveal>
       
     </div>
