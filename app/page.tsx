@@ -77,10 +77,9 @@ export default function Page() {
               {/* Desktop Nav Links — hidden on mobile */}
               <nav className="hidden md:flex items-center gap-8">
                 <a href="#features" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">Features</a>
-                <a href="#how-it-works" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">How It Works</a>
-                <a href="#pricing" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">Pricing</a>
-                <a href="#resource" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">Resource</a>
-                <a href="#company" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">Company</a>
+                <a href="#integrations" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">Integrations</a>
+                <a href="#themes" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">Themes</a>
+                <a href="#comparison" className="text-white/70 hover:text-white text-xs font-medium transition-colors font-sans">Comparison</a>
               </nav>
 
               {/* GitHub — icon only on mobile, icon + text on desktop */}
@@ -231,21 +230,23 @@ export default function Page() {
 
       {/* Comparison Section */}
       <ScrollReveal>
-        <div id="pricing" className="w-full">
+        <div id="comparison" className="w-full">
           <ComparisonSection />
         </div>
       </ScrollReveal>
 
       {/* Multi Orbit Semi-Circle Section */}
       <ScrollReveal>
-        <div id="how-it-works" className="w-full">
+        <div id="integrations" className="w-full">
           <MultiOrbitSemiCircle />
         </div>
       </ScrollReveal>
 
       {/* Feature Image Comparison Section */}
       <ScrollReveal>
-        <FeatureWithImageComparison />
+        <div id="themes" className="w-full">
+          <FeatureWithImageComparison />
+        </div>
       </ScrollReveal>
 
       {/* CTA Section */}
@@ -255,11 +256,7 @@ export default function Page() {
 
       {/* Footer Section */}
       <ScrollReveal delay={100}>
-        <div id="company" className="w-full">
-          <div id="resource" className="w-full">
-            <Footer />
-          </div>
-        </div>
+        <Footer />
       </ScrollReveal>
       
     </div>
