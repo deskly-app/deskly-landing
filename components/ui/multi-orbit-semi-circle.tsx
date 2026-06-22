@@ -17,7 +17,7 @@ const APP_NAMES = [
   "Other Calendar Services"
 ];
 
-function SemiCircleOrbit({ radius, centerX, centerY, count, iconSize }: any) {
+function SemiCircleOrbit({ radius, centerX, centerY, count, iconSize, startIndex = 0 }: any) {
   return (
     <>
       {/* Semi-circle glow background */}
@@ -40,7 +40,8 @@ function SemiCircleOrbit({ radius, centerX, centerY, count, iconSize }: any) {
         const angle = (index / (count - 1)) * 180;
         const x = radius * Math.cos((angle * Math.PI) / 180);
         const y = radius * Math.sin((angle * Math.PI) / 180);
-        const icon = ICONS[index % ICONS.length];
+        const icon = ICONS[(startIndex + index) % ICONS.length];
+        const name = APP_NAMES[(startIndex + index) % APP_NAMES.length];
 
         // Tooltip positioning — above or below based on angle
         const tooltipAbove = angle > 90;
@@ -72,7 +73,7 @@ function SemiCircleOrbit({ radius, centerX, centerY, count, iconSize }: any) {
                 tooltipAbove ? "bottom-[calc(100%+8px)]" : "top-[calc(100%+8px)]"
               } hidden group-hover:block w-32 rounded-md bg-[#0a0f1d] border border-white/10 px-2.5 py-1.5 text-[10px] text-white shadow-xl text-center font-sans tracking-wide z-50`}
             >
-              {APP_NAMES[index % APP_NAMES.length]}
+              {name}
               <div
                 className={`absolute left-1/2 -translate-x-1/2 w-2 h-2 border-r border-b border-white/10 rotate-45 bg-[#0a0f1d] ${
                   tooltipAbove ? "top-full -mt-1" : "bottom-full -mb-1"
@@ -121,7 +122,9 @@ export default function MultiOrbitSemiCircle() {
           className="relative"
           style={{ width: baseWidth, height: baseWidth * 0.6 }}
         >
-          <SemiCircleOrbit radius={baseWidth * 0.45} centerX={centerX} centerY={centerY} count={10} iconSize={iconSize} />
+          <SemiCircleOrbit radius={baseWidth * 0.22} centerX={centerX} centerY={centerY} count={4} iconSize={iconSize} startIndex={0} />
+          <SemiCircleOrbit radius={baseWidth * 0.36} centerX={centerX} centerY={centerY} count={6} iconSize={iconSize} startIndex={4} />
+          <SemiCircleOrbit radius={baseWidth * 0.5} centerX={centerX} centerY={centerY} count={10} iconSize={iconSize} startIndex={10} />
         </div>
       </div>
     </section>
