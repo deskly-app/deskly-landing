@@ -61,8 +61,9 @@ export default function CallToAction() {
             <Button 
               variant="outline"
               className="w-full sm:w-auto border-white/10 hover:bg-white/5 text-white rounded-[4px] px-6 py-2 transition-all active:scale-95 cursor-pointer font-sans"
+              asChild
             >
-              View Architecture
+              <a href="#architecture">View Architecture</a>
             </Button>
             <Button 
               className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-[4px] px-6 py-2 transition-all active:scale-95 cursor-pointer font-sans"

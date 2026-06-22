@@ -14,33 +14,33 @@ import BootingLoader from "@/components/ui/booting-loader";
 
 const gridFeatures = [
   {
-    title: "VTOP Auto-Login",
-    description: "Automate your portal authentications so you can log in with a single click, skipping boring forms.",
+    title: "Offline CAPTCHA Solver",
+    description: "Runs a native single-layer feed-forward classifier to segment VTOP's captcha grid and predict text locally in under 1ms.",
     icon: Cpu,
   },
   {
-    title: "Attendance Tracker",
-    description: "Keep tabs on your lecture attendance and check how many classes you can skip before hitting the 75% limit.",
+    title: "Attendance Predictor",
+    description: "Queries detailed class tables to compute safe skips or consecutive sessions needed to maintain university safety bounds.",
     icon: BookOpen,
   },
   {
-    title: "Live Timetable",
-    description: "A dynamic dashboard indicating your active slots, faculty contacts, and classroom locations for the day.",
+    title: "Slot Formatter Engine",
+    description: "Decodes VTOP slots (A1, TB2, L17) into absolute days, times, and room locations with batch ICS and Google Calendar sync.",
     icon: Clock,
   },
   {
-    title: "Local Offline Vault",
-    description: "Your login credentials are encrypted locally with AES-256. Your password never leaves your personal computer.",
+    title: "Secure Keyring Vault",
+    description: "Encrypts credentials locally using AES-GCM or interfaces directly with macOS Keychain, Credential Manager, or Secret Service.",
     icon: Shield,
   },
   {
-    title: "Session Persistence",
-    description: "Maintains your portal session in the background to prevent VTOP from logging you out during research tasks.",
+    title: "Persistent Session Client",
+    description: "Wraps a reqwest HTTP client to persist background session cookies, preventing automatic logouts during research tasks.",
     icon: Sparkles,
   },
   {
-    title: "Smart Alerts",
-    description: "Receive desktop widgets and warning notifications if your attendance drops below critical university thresholds.",
+    title: "Full Academic Scrapers",
+    description: "Syncs exam seat listings, payment invoices, hostel mess menus, laundry schedule planners, and dean/advisor contacts.",
     icon: ShieldAlert,
   },
 ];
@@ -124,12 +124,12 @@ export default function Page() {
                 Download Free
                 <span>✦</span>
               </button>
-              <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 rounded-[4px] text-sm font-medium active:scale-95 transition-all cursor-pointer font-sans">
+              <a href="#architecture" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 rounded-[4px] text-sm font-medium active:scale-95 transition-all cursor-pointer font-sans">
                 View Architecture
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </button>
+              </a>
             </div>
           </div>
         </ScrollReveal>
