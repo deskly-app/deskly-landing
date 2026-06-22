@@ -57,7 +57,7 @@ function SemiCircleOrbit({ radius, centerX, centerY, count, iconSize }: any) {
           >
             <div className="flex items-center justify-center cursor-pointer">
               <img
-                src={icon}
+                src={`${icon}?v=3`}
                 alt={`icon-${index}`}
                 width={iconSize}
                 height={iconSize}
@@ -108,7 +108,7 @@ export default function MultiOrbitSemiCircle() {
       : Math.max(48, baseWidth * 0.1);
 
   return (
-    <section id="architecture" className="py-20 sm:py-28 md:py-36 lg:py-48 relative w-full overflow-hidden bg-black">
+    <section id="architecture" className="py-20 sm:py-28 md:py-36 lg:py-48 relative w-full overflow-hidden bg-transparent">
       <div className="relative flex flex-col items-center text-center z-10 px-5 md:px-6">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-white mb-3 md:mb-4 font-header leading-[1.2]">
           Seamless Calendar &amp; Workspace Sync
