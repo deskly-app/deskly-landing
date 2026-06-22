@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-aria-label="Calendar" role="img"
-viewBox="0 0 512 512"
-fill="#fff" font-family="monospace"><path d="m0 0V512h512V0" fill="#dee"/><path d="m0 0V180h512V0" fill="#d34"/><path fill="#eab" d="m383.5 86a14 14 0 101 0h42a14 14 0 101 0h42a14 14 0 101 0zm0 43a14 14 0 101 0h42a14 14 0 101 0h42a14 14 0 101 0"/><text x="24.5" y="164" style="text-transform:uppercase" font-size="140">FEB</text><g fill="#677" text-anchor="middle"><text font-size="256" x="256" y="400">29</text><text font-size="64" x="256" y="480">Sunday</text></g><script><![CDATA[c=0;for(i in e={month:"short",day:"numeric",weekday:"long"})document.querySelectorAll("text")[c++].innerHTML=(new Date).toLocaleString(0,{[i]:e[i]})]]></script></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+</svg>
