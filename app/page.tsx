@@ -167,15 +167,10 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10 flex flex-col gap-16 md:gap-24">
           {/* Partner / Tech Logos */}
           <ScrollReveal>
-            <div className="flex flex-col items-center gap-4 md:gap-5">
-              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-zinc-500 font-sans select-none">
-                Built With Modern Technology Stack
-              </span>
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-16 opacity-45 select-none">
-                {["Rust", "Tauri", "React", "TypeScript", "Vite", "Tailwind CSS"].map((name) => (
-                  <span key={name} className="text-white font-semibold text-sm sm:text-base md:text-lg tracking-wider font-sans">{name}</span>
-                ))}
-              </div>
+            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-16 opacity-45 select-none">
+              {["Rust", "Tauri", "React", "TypeScript", "Vite", "Tailwind CSS"].map((name) => (
+                <span key={name} className="text-white font-semibold text-sm sm:text-base md:text-lg tracking-wider font-sans">{name}</span>
+              ))}
             </div>
           </ScrollReveal>
 
