@@ -1,43 +1,22 @@
-# Deskly Landing Page
+# Deskly
 
-Official landing page for [Deskly](https://github.com/Vishal-770/deskly-tauri/) - the open-source desktop app for VIT Chennai students.
+Deskly is an open-source, native desktop client designed for VIT students to replace the clunky VTOP web interface. Built on Rust and Tauri, Deskly automatically solves CAPTCHAs offline in under 1ms, keeps background sessions alive so you never get logged out randomly, formats schedules into clean calendars, and encrypts all credentials locally on your device.
 
-## 🚀 Live Site 
+## 🔗 Repositories
 
-[deskly.vishaldev.space](https://deskly.vishaldev.space)
+- **Desktop App (Tauri + Rust)**: [https://github.com/deskly-app/deskly-tauri](https://github.com/deskly-app/deskly-tauri)
+- **Landing Page (Next.js)**: [https://github.com/deskly-app/deskly-landing](https://github.com/deskly-app/deskly-landing)
 
-## 🛠️ Tech Stack
+---
 
-- **Next.js 16** (App Router)
-- **TypeScript**
-- **Tailwind CSS**
-- **Lenis** (Smooth scrolling)
-- **Lucide Icons**
+## 📜 Terms & Disclaimer
 
-## 💻 Development
+- **Zero Data Tracking**: Deskly operates 100% locally on your machine. Your credentials, session tokens, and academic data never touch any third-party server or cloud vault.
+- **Independent Project**: Deskly is an open-source utility created by students for students. It is not affiliated with, maintained by, or endorsed by VIT.
+- **As-Is Software**: Provided under the MIT License without warranties. We don't log analytics, we don't collect telemetry, and we don't track anything—use it at your own risk and enjoy a seamless VTOP experience.
 
-```bash
-npm install
-npm run dev
-```
-
-Visit [localhost:3000](http://localhost:3000)
-
-## 📦 Build
-
-```bash
-npm run build
-npm start
-```
-
-## ✨ Features
-
-- Fully SEO optimized with structured data
-- Auto-generated sitemap and robots.txt
-- Open Graph & Twitter Card support
-- Mobile-first responsive design
-- Smooth animations and interactions
+---
 
 ## 📄 License
 
-MIT
+[MIT License](LICENSE)
