@@ -97,10 +97,10 @@ export function Features() {
                                         </defs>
                                     </svg>
                                 </div>
-                                <div className="relative z-10 mt-14 space-y-2 text-center">
-                                    <h3 className="text-lg font-semibold text-white tracking-tight">Tauri v2 &amp; Rust Core</h3>
-                                    <p className="text-zinc-400 text-sm leading-relaxed">Built natively in Rust to handle secure network tasks, headless scraping, and high-performance operations without electron bloat.</p>
-                                </div>
+                                 <div className="relative z-10 mt-14 space-y-2 text-center">
+                                     <h3 className="text-lg font-semibold text-white tracking-tight">Tauri v2 &amp; Rust Core (Desktop &amp; Android)</h3>
+                                     <p className="text-zinc-400 text-sm leading-relaxed">Built natively in Rust using Tauri v2 to target both Desktop and Android from a single lightweight codebase, avoiding heavy Electron bloat.</p>
+                                 </div>
                             </CardContent>
                         </Card>
                         <Card className="relative col-span-full overflow-hidden lg:col-span-3 bg-[#0c0f1d]/40 backdrop-blur-md border border-white/5 hover:border-blue-500/20 transition-all duration-500">

@@ -4,7 +4,7 @@ Deskly is an open-source, native desktop client designed for VIT students to rep
 
 ## 🔗 Repositories
 
-- **Desktop App (Tauri + Rust)**: [https://github.com/deskly-app/deskly-tauri](https://github.com/deskly-app/deskly-tauri)
+- **Desktop App (Tauri + Rust)**: [https://github.com/deskly-app/deskly](https://github.com/deskly-app/deskly)
 - **Landing Page (Next.js)**: [https://github.com/deskly-app/deskly-landing](https://github.com/deskly-app/deskly-landing)
 
 ---

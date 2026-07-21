@@ -66,7 +66,7 @@ export default function Footer() {
             </a>
             
             <a 
-              href="https://github.com/Vishal-770/deskly-tauri/"
+              href="https://github.com/deskly-app/deskly"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-white/10 hover:bg-white/5 text-white rounded-[4px] px-5 py-2.5 text-xs font-medium tracking-wide flex items-center gap-1.5 active:scale-95 transition-all cursor-pointer font-sans"
@@ -97,7 +97,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-2.5">
               <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Help Center</a></li>
               <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">API Docs</a></li>
-              <li><a href="https://github.com/Vishal-770/deskly-tauri/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">GitHub Repo</a></li>
+              <li><a href="https://github.com/deskly-app/deskly" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">GitHub Repo</a></li>
               <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Contribution</a></li>
             </ul>
           </div>

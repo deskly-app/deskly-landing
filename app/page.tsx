@@ -84,7 +84,7 @@ export default function Page() {
 
               {/* GitHub — icon only on mobile, icon + text on desktop */}
               <a
-                href="https://github.com/Vishal-770/deskly-tauri/"
+                href="https://github.com/deskly-app/deskly"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-3 md:px-4 py-2 rounded-[4px] text-xs font-medium shadow-md shadow-blue-500/10 active:scale-95 transition-all cursor-pointer font-sans"
@@ -108,12 +108,12 @@ export default function Page() {
 
             {/* Title */}
             <h1 className="text-white font-semibold text-2xl sm:text-3xl md:text-5xl lg:text-6xl max-w-4xl leading-[1.12] mb-3 md:mb-4 tracking-tight font-header">
-              Your VTOP Student Portal, Reimagined as a Premium Desktop Client
+              Your VTOP Student Portal, Reimagined as a Premium Desktop & Mobile Client
             </h1>
 
             {/* Description */}
             <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-xl md:max-w-2xl mb-6 md:mb-7 leading-relaxed font-sans font-normal px-2">
-              Ditch the browser tabs. Deskly is an open-source native desktop app built on Rust and Tauri that automates logins, resolves VTOP CAPTCHAs offline, and syncs timetables.
+              Ditch the browser tabs. Deskly is an open-source native cross-platform app (Desktop & Android) built on Rust and Tauri v2 that automates logins, resolves VTOP CAPTCHAs offline, and syncs timetables.
             </p>
 
             {/* Action Buttons */}
@@ -122,8 +122,13 @@ export default function Page() {
                 Download Free
                 <Download className="w-4 h-4" />
               </a>
-              <a href="#architecture" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 rounded-[4px] text-sm font-medium active:scale-95 transition-all cursor-pointer font-sans">
-                View Architecture
+               <a 
+                href="https://github.com/deskly-app/deskly" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-3 rounded-[4px] text-sm font-medium active:scale-95 transition-all cursor-pointer font-sans"
+              >
+                View GitHub
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
