@@ -139,7 +139,7 @@ export default function Footer() {
 
       {/* Subfooter bottom line */}
       <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10 border-t border-white/5 pt-6 md:pt-8 mt-8 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 select-none">
-        <span className="text-zinc-500 text-[10px] font-sans">
+        <span className="text-zinc-500 text-[10px] font-sans" suppressHydrationWarning>
           &copy; {new Date().getFullYear()} Deskly Assistant. All rights reserved.
         </span>
         <div className="flex gap-4">
