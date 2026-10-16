@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Component from "@/components/ui/gradient-bars-background";
 import { Features } from "@/components/blocks/features-8";
 import { FeatureCard } from "@/components/blocks/grid-feature-cards";
@@ -9,43 +11,45 @@ import CallToAction from "@/components/ui/cta-3";
 import Footer from "@/components/ui/footer";
 import ScrollReveal from "@/components/ui/scroll-reveal";
 import ComparisonSection from "@/components/ui/comparison-section";
-import { Shield, BookOpen, Clock, ShieldAlert, Cpu, RefreshCw, Download } from "lucide-react";
+import { Shield, BookOpen, Clock, ShieldAlert, Cpu, RefreshCw, Download, Monitor, Smartphone, Zap, Calendar } from "lucide-react";
 import BootingLoader from "@/components/ui/booting-loader";
 
 const gridFeatures = [
   {
-    title: "Offline CAPTCHA Solver",
-    description: "Runs a native single-layer feed-forward classifier to segment VTOP's captcha grid and predict text locally in under 1ms.",
-    icon: Cpu,
+    title: "Live Attendance & Skip Intelligence",
+    description: "Computes attended, conducted, and OD credits in real time. Instantly predicts exact consecutive classes you can safely skip without dipping below 75%.",
+    icon: Zap,
   },
   {
-    title: "Attendance Predictor",
-    description: "Queries detailed class tables to compute safe skips or consecutive sessions needed to maintain university safety bounds.",
-    icon: BookOpen,
+    title: "Android Home Screen Widgets",
+    description: "Glanceable 2x3 and 2x4 widgets calibrated for Samsung One UI, Pixel Launcher, and OxygenOS grids. View live % and safe skips with zero background drain.",
+    icon: Smartphone,
   },
   {
-    title: "Slot Formatter Engine",
-    description: "Decodes VTOP slots (A1, TB2, L17) into absolute days, times, and room locations with batch ICS and Google Calendar sync.",
+    title: "Offline Timetable & Class Tracker",
+    description: "Interactive day/week schedule with course titles, slot names, venues, and faculty details. Automatically highlights your active ongoing lecture.",
     icon: Clock,
   },
   {
-    title: "Secure Keyring Vault",
-    description: "Encrypts credentials locally using AES-GCM or interfaces directly with macOS Keychain, Credential Manager, or Secret Service.",
+    title: "Marks Breakdown & GPA Progress",
+    description: "Continuous assessment score breakdowns across CAT 1, CAT 2, and DAs with weightage calculations, semester progression, and credit distributions.",
+    icon: BookOpen,
+  },
+  {
+    title: "1-Click .ICS Calendar Export",
+    description: "Export exam dates, slot timings, reporting schedules, and seating venues straight into Google Calendar, Apple Calendar, or Microsoft Outlook.",
+    icon: Calendar,
+  },
+  {
+    title: "Direct Endpoints & Keyring Vault",
+    description: "Connects directly from your local device to portal endpoints with zero intermediaries. Encrypted using your OS hardware keyring with zero telemetry.",
     icon: Shield,
-  },
-  {
-    title: "Persistent Session Client",
-    description: "Wraps a reqwest HTTP client to persist background session cookies, preventing automatic logouts during research tasks.",
-    icon: RefreshCw,
-  },
-  {
-    title: "Full Academic Scrapers",
-    description: "Syncs exam seat listings, payment invoices, hostel mess menus, laundry schedule planners, and dean/advisor contacts.",
-    icon: ShieldAlert,
   },
 ];
 
 export default function Page() {
+  const [activeTab, setActiveTab] = useState<"desktop" | "mobile">("desktop");
+
   return (
     <div className="relative w-full min-h-screen bg-black text-white overflow-x-hidden flex flex-col justify-start">
       <BootingLoader />
@@ -103,17 +107,17 @@ export default function Page() {
           <div className="relative z-20 flex flex-col items-center justify-start text-center px-5 pt-24 sm:pt-28 md:pt-36 max-w-5xl mx-auto">
             {/* Subtitle */}
             <div className="flex items-center gap-1.5 text-blue-400/95 text-[10px] sm:text-xs md:text-sm font-medium tracking-wider uppercase mb-3 md:mb-4 font-header">
-              <span>Simplify Your Student Life</span>
+              <span>Academic tracking without the bloat • Zero lag • Zero ads • 100% offline-ready</span>
             </div>
 
             {/* Title */}
             <h1 className="text-white font-semibold text-2xl sm:text-3xl md:text-5xl lg:text-6xl max-w-4xl leading-[1.12] mb-3 md:mb-4 tracking-tight font-header">
-              Your VTOP Student Portal, Reimagined as a Premium Desktop & Mobile Client
+              We got tired of bloated, unperformant vibecoded wrappers. So we wrote one in Rust.
             </h1>
 
             {/* Description */}
             <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-xl md:max-w-2xl mb-6 md:mb-7 leading-relaxed font-sans font-normal px-2">
-              Ditch the browser tabs. Deskly is an open-source native cross-platform app (Desktop & Android) built on Rust and Tauri v2 that automates logins, resolves VTOP CAPTCHAs offline, and syncs timetables.
+              Engineered for raw speed. Zero ads, zero bloat, and sub-millisecond offline execution. While typical VTOP apps feel sluggish and vibecoded, Deskly harnesses native Rust performance to deliver a radically small footprint, relentless optimizations, and rock-solid updates that keep working when you need them most.
             </p>
 
             {/* Action Buttons */}
@@ -137,27 +141,100 @@ export default function Page() {
           </div>
         </ScrollReveal>
 
-        {/* Browser Mockup */}
+        {/* Switchable Desktop & Mobile Mockup Showcase */}
         <ScrollReveal delay={250} duration={1200}>
           <div className="relative z-30 w-full max-w-[1250px] mx-auto px-4 sm:px-6 mt-8 sm:mt-10 md:mt-12">
-            <div className="bg-[#0b0f19] rounded-xl border border-white/10 shadow-2xl overflow-hidden">
-              {/* Mac Browser Frame Bar */}
-              <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 bg-[#0d1220] border-b border-white/5">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-red-500/80"></span>
-                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-yellow-500/80"></span>
-                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-green-500/80"></span>
-                </div>
-                <div className="flex-1 max-w-[120px] sm:max-w-xs mx-auto bg-[#070a12] rounded-md py-1 px-2 sm:px-3 text-center text-[9px] sm:text-[10px] text-white/40 font-mono tracking-wide border border-white/5 select-none">
-                  deskly.app
-                </div>
-                <div className="flex items-center gap-2 text-white/30">
-                </div>
-              </div>
-              <div className="w-full bg-black">
-                <img src="/main.png" alt="Deskly Application Preview" className="w-full h-auto block" />
+            {/* Platform Switcher Tabs */}
+            <div className="flex items-center justify-center mb-6 sm:mb-8">
+              <div className="relative inline-flex items-center p-1 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-lg shadow-black/40">
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("desktop")}
+                  className={`relative z-10 flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors duration-200 cursor-pointer ${
+                    activeTab === "desktop" ? "text-white" : "text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  {activeTab === "desktop" && (
+                    <motion.div
+                      layoutId="activeTabPill"
+                      className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 shadow-md shadow-blue-500/30"
+                      transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                    />
+                  )}
+                  <Monitor className="relative z-10 w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <span className="relative z-10">Desktop</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab("mobile")}
+                  className={`relative z-10 flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors duration-200 cursor-pointer ${
+                    activeTab === "mobile" ? "text-white" : "text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  {activeTab === "mobile" && (
+                    <motion.div
+                      layoutId="activeTabPill"
+                      className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 shadow-md shadow-blue-500/30"
+                      transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                    />
+                  )}
+                  <Smartphone className="relative z-10 w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <span className="relative z-10">Mobile</span>
+                </button>
               </div>
             </div>
+
+            {/* Smooth Tab Preview Display */}
+            <motion.div 
+              layout 
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {activeTab === "desktop" ? (
+                  <motion.div
+                    key="desktop"
+                    initial={{ opacity: 0, y: 12, scale: 0.99 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.99 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="w-full bg-[#0b0f19] rounded-xl border border-white/10 shadow-2xl overflow-hidden"
+                  >
+                    {/* Mac Browser Frame Bar */}
+                    <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 bg-[#0d1220] border-b border-white/5">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-red-500/80"></span>
+                        <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-yellow-500/80"></span>
+                        <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-green-500/80"></span>
+                      </div>
+                      <div className="flex-1 max-w-[120px] sm:max-w-xs mx-auto bg-[#070a12] rounded-md py-1 px-2 sm:px-3 text-center text-[9px] sm:text-[10px] text-white/40 font-mono tracking-wide border border-white/5 select-none">
+                        deskly.app
+                      </div>
+                      <div className="flex items-center gap-2 text-white/30">
+                      </div>
+                    </div>
+                    <div className="w-full bg-black">
+                      <img src="/main.png" alt="Deskly Desktop Application Preview" className="w-full h-auto block select-none" />
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="mobile"
+                    initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="flex justify-center items-center py-4 sm:py-8"
+                  >
+                    <img 
+                      src="/mobile.png" 
+                      alt="Deskly Mobile Client Preview" 
+                      className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[340px] h-auto block drop-shadow-[0_25px_50px_rgba(0,0,0,0.95)] select-none pointer-events-none" 
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           </div>
         </ScrollReveal>
       </section>
@@ -172,9 +249,9 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10 flex flex-col gap-16 md:gap-24">
           {/* Partner / Tech Logos */}
           <ScrollReveal>
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-16 opacity-45 select-none">
-              {["Rust", "Tauri", "React", "TypeScript", "Vite", "Tailwind CSS"].map((name) => (
-                <span key={name} className="text-white font-semibold text-sm sm:text-base md:text-lg tracking-wider font-sans">{name}</span>
+            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-14 opacity-60 select-none">
+              {["Pure Rust Core", "Tauri v2", "Android APK (arm64)", "Windows & macOS", "Linux", "Zero Telemetry", "100% Offline"].map((name) => (
+                <span key={name} className="text-white/80 font-semibold text-xs sm:text-sm md:text-base tracking-wider font-sans">{name}</span>
               ))}
             </div>
           </ScrollReveal>
@@ -183,10 +260,10 @@ export default function Page() {
           <ScrollReveal delay={100}>
             <div className="text-center max-w-3xl mx-auto px-2">
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-white mb-3 md:mb-4 font-header leading-[1.2]">
-                Built to Automate Your Academic Workload
+                Instant Academic Tracking &amp; Skip Intelligence
               </h2>
               <p className="text-zinc-400 text-sm md:text-base font-sans font-normal leading-relaxed">
-                Ditch the manual VTOP hurdles. Deskly coordinates your schedule updates, logs in to session dashboards, and keeps you prepared automatically.
+                Replaces slow, clunky portal browsing with an instant, privacy-focused dashboard. Real-time 75% attendance calculations, offline timetable access, mark breakdowns, and home screen widgets.
               </p>
             </div>
           </ScrollReveal>

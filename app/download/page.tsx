@@ -23,94 +23,130 @@ interface ReleaseFile {
   platformName: string;
 }
 
-const FALLBACK_RELEASE_VERSION = "v5.0.0";
-const FALLBACK_PUBLISHED_AT = "2026-07-21T15:12:21Z";
+const FALLBACK_RELEASE_VERSION = "v7.1.6";
+const FALLBACK_PUBLISHED_AT = "2026-10-16T16:56:11Z";
 
 const FALLBACK_FILES: ReleaseFile[] = [
   {
-    name: "Deskly_5.0.0_aarch64.dmg",
-    size: "8.31 MB",
-    checksum: "9177970cfe1bdc5759d9bd5506e84348437bf6a3f3fef0a85b62f8246d364d39",
-    url: "https://github.com/deskly-app/deskly/releases/download/v5.0.0/Deskly_5.0.0_aarch64.dmg",
+    name: "Deskly_7.1.6_aarch64.dmg",
+    size: "4.97 MB",
+    checksum: "d609bc73598764f52f57cd7650beec535a0f49cb76be00399fdf0cb273dc2b21",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6_aarch64.dmg",
     platform: "mac",
     platformName: "macOS (Apple Silicon)"
   },
   {
     name: "Deskly.app.tar.gz",
-    size: "7.66 MB",
-    checksum: "cd34869ae9c30a0bb1ffb3a8505c98e85fccd26838d20e75b265fda806ed0214",
-    url: "https://github.com/deskly-app/deskly/releases/download/v5.0.0/Deskly.app.tar.gz",
+    size: "4.21 MB",
+    checksum: "d6befbe189ea42520e14e764480666a9d634c2c2686cb59eb76f196c44749838",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly.app.tar.gz",
     platform: "mac",
     platformName: "macOS (Intel/Portable)"
   },
   {
-    name: "Deskly_5.0.0_x64_en-US.msi",
-    size: "6.69 MB",
-    checksum: "1f5fbe8ca2f2f8845b1d76f9b7c1c721d7e7fe9c58954f1a60119f6983961db9",
-    url: "https://github.com/deskly-app/deskly/releases/download/v5.0.0/Deskly_5.0.0_x64_en-US.msi",
+    name: "Deskly_7.1.6_x64_en-US.msi",
+    size: "3.78 MB",
+    checksum: "a5e99d37aa327b06f618ac21e3fd710fff8c11e749eb4d1d1d3d094ce66f6b60",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6_x64_en-US.msi",
     platform: "windows",
     platformName: "Windows (MSI Installer)"
   },
   {
-    name: "Deskly_5.0.0_x64-setup.exe",
-    size: "4.0 MB",
-    checksum: "d8288b5ab20aa4a495667c2471b84197d7c8059ee0c5bc531ff8cd797320cd03",
-    url: "https://github.com/deskly-app/deskly/releases/download/v5.0.0/Deskly_5.0.0_x64-setup.exe",
+    name: "Deskly_7.1.6_x64-setup.exe",
+    size: "2.94 MB",
+    checksum: "b5a1892d064381c6c72c7759642640496da3fbc3870430dcfcb14322526f044e",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6_x64-setup.exe",
     platform: "windows",
     platformName: "Windows (EXE Installer)"
   },
   {
-    name: "Deskly_5.0.0_amd64.AppImage",
-    size: "82.5 MB",
-    checksum: "0099b39692e8d72ee9748df07ac9ad7476e20ff8f6d2e91e9e4484cb1ac59269",
-    url: "https://github.com/deskly-app/deskly/releases/download/v5.0.0/Deskly_5.0.0_amd64.AppImage",
+    name: "Deskly_7.1.6_amd64.AppImage",
+    size: "78.9 MB",
+    checksum: "346f379371acb89d6a956843f4bdad4a1afc2569151d0a5a1e164bfebe4dc229",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6_amd64.AppImage",
     platform: "linux",
     platformName: "Linux (AppImage)"
   },
   {
-    name: "Deskly_5.0.0_amd64.deb",
-    size: "9.14 MB",
-    checksum: "8be39a3ab12f9b1f3cd4d5a860952f7117c8e8adc4d84f944fd90ed045447d28",
-    url: "https://github.com/deskly-app/deskly/releases/download/v5.0.0/Deskly_5.0.0_amd64.deb",
+    name: "Deskly_7.1.6_amd64.deb",
+    size: "4.31 MB",
+    checksum: "1613a6b80427d7e945cf89ed1ff3c0f965409d9c4b44fa4fd047bfe88f1c3d51",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6_amd64.deb",
     platform: "linux",
     platformName: "Linux (Debian/Deb)"
   },
   {
-    name: "Deskly-5.0.0-1.x86_64.rpm",
-    size: "9.14 MB",
-    checksum: "d3b827942ad162c4d008defe2487e9195d602f5fc3cc6a13b156045dfaa5aeab",
-    url: "https://github.com/deskly-app/deskly/releases/download/v5.0.0/Deskly-5.0.0-1.x86_64.rpm",
+    name: "Deskly-7.1.6-1.x86_64.rpm",
+    size: "4.31 MB",
+    checksum: "0a1b8b4a232d165cfe5db372ce5a0161f5105f151a06526b2793353d21931bd1",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly-7.1.6-1.x86_64.rpm",
     platform: "linux",
     platformName: "Linux (Fedora/RPM)"
   },
   {
-    name: "Deskly_5.0.0_universal.apk",
-    size: "40.2 MB",
-    checksum: "3fb985a73e6a2dfa09b307ec93fae21db7c8e8adc4d84f944fd90ed045447d28",
-    url: "https://github.com/deskly-app/deskly/releases/download/v5.0.0/Deskly_5.0.0_universal.apk",
+    name: "Deskly_7.1.6_arm64.apk",
+    size: "9.88 MB",
+    checksum: "9041db50a2c2bc0564514183cfea9ca3bc1f69c6b51264b42319cc74d117f800",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6_arm64.apk",
     platform: "android",
-    platformName: "Android (Universal APK)"
+    platformName: "Android (arm64-v8a • Modern Phones)"
   },
   {
-    name: "Deskly_5.0.0.aab",
-    size: "38.5 MB",
-    checksum: "8be39a3ab12f9b1f3cd4d5a860952f7117c8e8adc4d84f944fd90ed045447d28",
-    url: "https://github.com/deskly-app/deskly/releases/download/v5.0.0/Deskly_5.0.0.aab",
+    name: "Deskly_7.1.6_arm.apk",
+    size: "7.39 MB",
+    checksum: "ee2cf4798b375e221486c02c61a58714b8851339062e5a905390323fb20d834e",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6_arm.apk",
     platform: "android",
-    platformName: "Android (Google Play AAB)"
+    platformName: "Android (armeabi-v7a • 32-bit Devices)"
+  },
+  {
+    name: "Deskly_7.1.6_x86_64.apk",
+    size: "11.0 MB",
+    checksum: "53d69f3be7bb1a349dfd3e2c680b600009b7edc52903c990f80393cc5743c4bf",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6_x86_64.apk",
+    platform: "android",
+    platformName: "Android (x86_64 • Chromebooks & Emulators)"
+  },
+  {
+    name: "Deskly_7.1.6_x86.apk",
+    size: "10.5 MB",
+    checksum: "5cc27b9edcea9311f28a7f3f04e9505b3df69165592552fec45ff9ed4623434b",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6_x86.apk",
+    platform: "android",
+    platformName: "Android (x86 • 32-bit Emulators)"
+  },
+  {
+    name: "Deskly_7.1.6_universal.apk",
+    size: "32.2 MB",
+    checksum: "aeb6b94ce66e3e4457752a354bf4cd248592bdbdcf7b95b91b6958bcde1d2f9f",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6_universal.apk",
+    platform: "android",
+    platformName: "Android (Universal APK • All-in-One Fallback)"
+  },
+  {
+    name: "Deskly_7.1.6.aab",
+    size: "17.7 MB",
+    checksum: "dd72a2572dc52d26165f04ff93fda0a0ede84e75ce9a1f027759fedbf564a539",
+    url: "https://github.com/deskly-app/deskly/releases/download/v7.1.6/Deskly_7.1.6.aab",
+    platform: "android",
+    platformName: "Android (Google Play Bundle • AAB)"
   }
 ];
 
 const CHECKSUM_MAP: Record<string, string> = {
-  "Deskly-5.0.0-1.x86_64.rpm": "d3b827942ad162c4d008defe2487e9195d602f5fc3cc6a13b156045dfaa5aeab",
-  "Deskly.app.tar.gz": "cd34869ae9c30a0bb1ffb3a8505c98e85fccd26838d20e75b265fda806ed0214",
-  "Deskly_5.0.0_aarch64.dmg": "9177970cfe1bdc5759d9bd5506e84348437bf6a3f3fef0a85b62f8246d364d39",
-  "Deskly_5.0.0_amd64.AppImage": "0099b39692e8d72ee9748df07ac9ad7476e20ff8f6d2e91e9e4484cb1ac59269",
-  "Deskly_5.0.0_amd64.deb": "8be39a3ab12f9b1f3cd4d5a860952f7117c8e8adc4d84f944fd90ed045447d28",
-  "Deskly_5.0.0_x64-setup.exe": "d8288b5ab20aa4a495667c2471b84197d7c8059ee0c5bc531ff8cd797320cd03",
-  "Deskly_5.0.0_x64_en-US.msi": "1f5fbe8ca2f2f8845b1d76f9b7c1c721d7e7fe9c58954f1a60119f6983961db9",
-  "Deskly_5.0.0_universal.apk": "3fb985a73e6a2dfa09b307ec93fae21db7c8e8adc4d84f944fd90ed045447d28",
-  "Deskly_5.0.0.aab": "8be39a3ab12f9b1f3cd4d5a860952f7117c8e8adc4d84f944fd90ed045447d28"
+  "Deskly-7.1.6-1.x86_64.rpm": "0a1b8b4a232d165cfe5db372ce5a0161f5105f151a06526b2793353d21931bd1",
+  "Deskly.app.tar.gz": "d6befbe189ea42520e14e764480666a9d634c2c2686cb59eb76f196c44749838",
+  "Deskly_7.1.6_aarch64.dmg": "d609bc73598764f52f57cd7650beec535a0f49cb76be00399fdf0cb273dc2b21",
+  "Deskly_7.1.6_amd64.AppImage": "346f379371acb89d6a956843f4bdad4a1afc2569151d0a5a1e164bfebe4dc229",
+  "Deskly_7.1.6_amd64.deb": "1613a6b80427d7e945cf89ed1ff3c0f965409d9c4b44fa4fd047bfe88f1c3d51",
+  "Deskly_7.1.6_x64-setup.exe": "b5a1892d064381c6c72c7759642640496da3fbc3870430dcfcb14322526f044e",
+  "Deskly_7.1.6_x64_en-US.msi": "a5e99d37aa327b06f618ac21e3fd710fff8c11e749eb4d1d1d3d094ce66f6b60",
+  "Deskly_7.1.6_arm64.apk": "9041db50a2c2bc0564514183cfea9ca3bc1f69c6b51264b42319cc74d117f800",
+  "Deskly_7.1.6_arm.apk": "ee2cf4798b375e221486c02c61a58714b8851339062e5a905390323fb20d834e",
+  "Deskly_7.1.6_x86_64.apk": "53d69f3be7bb1a349dfd3e2c680b600009b7edc52903c990f80393cc5743c4bf",
+  "Deskly_7.1.6_x86.apk": "5cc27b9edcea9311f28a7f3f04e9505b3df69165592552fec45ff9ed4623434b",
+  "Deskly_7.1.6_universal.apk": "aeb6b94ce66e3e4457752a354bf4cd248592bdbdcf7b95b91b6958bcde1d2f9f",
+  "Deskly_7.1.6.aab": "dd72a2572dc52d26165f04ff93fda0a0ede84e75ce9a1f027759fedbf564a539"
 };
 
 function formatSize(bytes: number): string {
@@ -177,7 +213,7 @@ export default function DownloadPage() {
       } else if (detectedOS === "linux") {
         bestFile = filesList.find(f => f.name.endsWith(".AppImage")) || filesList.find(f => f.platform === "linux") || null;
       } else if (detectedOS === "android") {
-        bestFile = filesList.find(f => f.name.endsWith(".apk")) || filesList.find(f => f.platform === "android") || null;
+        bestFile = filesList.find(f => f.name.includes("arm64.apk")) || filesList.find(f => f.name.endsWith(".apk")) || filesList.find(f => f.platform === "android") || null;
       }
       setRecommendedFile(bestFile);
     }
@@ -218,10 +254,30 @@ export default function DownloadPage() {
               else platformName = "Linux (Fedora/RPM)";
             } else if (name.endsWith(".apk") || name.endsWith(".aab")) {
               platform = "android";
-              platformName = name.endsWith(".apk") ? "Android (Universal APK)" : "Android (Google Play AAB)";
+              if (name.includes("arm64")) {
+                platformName = "Android (arm64-v8a • Modern Phones)";
+              } else if (name.includes("_arm.apk")) {
+                platformName = "Android (armeabi-v7a • 32-bit Devices)";
+              } else if (name.includes("x86_64")) {
+                platformName = "Android (x86_64 • Chromebooks & Emulators)";
+              } else if (name.includes("_x86.apk")) {
+                platformName = "Android (x86 • 32-bit Emulators)";
+              } else if (name.includes("universal")) {
+                platformName = "Android (Universal APK • All-in-One Fallback)";
+              } else if (name.endsWith(".aab")) {
+                platformName = "Android (Google Play Bundle • AAB)";
+              } else {
+                platformName = "Android APK Package";
+              }
             }
 
-            let checksum = parseChecksumFromBody(releaseBody, name);
+            let checksum = "";
+            if (asset.digest && typeof asset.digest === "string" && asset.digest.startsWith("sha256:")) {
+              checksum = asset.digest.replace("sha256:", "");
+            }
+            if (!checksum) {
+              checksum = parseChecksumFromBody(releaseBody, name);
+            }
             if (!checksum && CHECKSUM_MAP[name]) {
               checksum = CHECKSUM_MAP[name];
             }
@@ -430,8 +486,8 @@ export default function DownloadPage() {
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-3 font-header leading-tight">
               Download Deskly
             </h1>
-            <p className="text-zinc-400 text-xs sm:text-sm font-sans font-normal max-w-md mx-auto">
-              Get the latest stable build of the Deskly Client ({version}).
+            <p className="text-zinc-400 text-xs sm:text-sm font-sans font-normal max-w-lg mx-auto leading-relaxed">
+              Academic tracking without the bloat. Zero lag, zero ads, and 100% offline-ready across Android, Windows, macOS, and Linux ({version}).
             </p>
           </div>
         </ScrollReveal>
@@ -530,8 +586,8 @@ export default function DownloadPage() {
             </div>
           ) : (
             <div className="w-full">
-              {renderDownloadSection("Desktop Client", "Windows, macOS, Linux", desktopFiles)}
-              {renderDownloadSection("Mobile Client", "Android App", mobileFiles)}
+              {renderDownloadSection("Desktop Client", "Windows 10/11, macOS 11+, Linux (~3MB)", desktopFiles)}
+              {renderDownloadSection("Mobile Client", "Android 7.0+ up to Android 15 (~10MB arm64 • all formats supported)", mobileFiles)}
             </div>
           )}
         </ScrollReveal>

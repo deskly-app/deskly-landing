@@ -5,14 +5,14 @@ import { Badge } from "@/components/ui/badge";
 
 const rows = [
   { icon: RotateCcw, label: "Auto VTOP Re-Login",      others: "Manual every session",           deskly: "One-click, always live" },
-  { icon: Calendar,  label: "Live Timetable Dashboard", others: "Static screenshot / PDF",         deskly: "Real-time slot dashboard" },
-  { icon: Zap,       label: "Attendance Tracking",      others: "Count it yourself",               deskly: "Auto-tracked with alerts" },
-  { icon: Sun,       label: "Light & Dark Mode UI",     others: "Dark only or browser default",    deskly: "System-aware, both modes" },
-  { icon: Shield,    label: "Credential Security",      others: "Plain text or cloud stored",      deskly: "AES-256 local encryption" },
-  { icon: Database,  label: "Offline Vault",            others: "Requires active internet",        deskly: "Full offline, zero cloud" },
-  { icon: Bell,      label: "Smart Alerts",             others: "No notifications",                deskly: "Native OS desktop alerts" },
-  { icon: Moon,      label: "Session Persistence",      others: "VTOP logs you out",               deskly: "Kept alive silently" },
-  { icon: HardDrive, label: "Install Size",             others: "—", deskly: "~4MB (Windows) / ~40MB (Android)" },
+  { icon: Calendar,  label: "Live Timetable & ICS",     others: "Static screenshot / PDF",         deskly: "Live slots + 1-Click .ICS export" },
+  { icon: Zap,       label: "Attendance & Skips",       others: "Count it yourself",               deskly: "Live 75% + Safe Skip calculations" },
+  { icon: HardDrive, label: "Install Size",             others: "~60 MB – 150 MB+",               deskly: "~3MB (Desktop) / ~10MB (Android)" },
+  { icon: Shield,    label: "Storage Optimization",     others: "Extracts 30–50MB to disk",        deskly: "4KB page-aligned memory-mapped" },
+  { icon: Database,  label: "RAM & Webview Lag",        others: "Bundles Chromium (200MB+)",       deskly: "Native webview + <1KB bootstrap" },
+  { icon: Bell,      label: "Android Home Widgets",     others: "None / Browser bookmarks",        deskly: "2x3 & 2x4 widgets (zero drain)" },
+  { icon: Moon,      label: "Offline Access",           others: "Fails without network",           deskly: "0ms Stale-While-Revalidate (SWR)" },
+  { icon: Sun,       label: "Telemetry & Ads",          others: "Ad networks & analytics",         deskly: "Zero ads, zero tracking, MIT" },
 ];
 
 export default function ComparisonSection() {
@@ -155,16 +155,16 @@ export default function ComparisonSection() {
             {/* Left side: text block */}
             <div className="md:col-span-7 p-6 md:p-10 space-y-4">
               <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-blue-400 font-sans">
-                Zero Bloat Architecture
+                Performance &amp; Engineering
               </span>
               <h3 className="text-xl md:text-2xl font-semibold text-foreground tracking-tight font-header leading-tight">
-                Powered by Rust: Unbelievably Tiny Footprint
+                Powered by Rust: Memory-Mapped &amp; Uncompressed APK
               </h3>
               <p className="text-muted-foreground text-xs md:text-sm font-sans leading-relaxed">
-                Deskly leverages the safety, speed, and efficiency of Rust, compiled directly to native machine code. By utilizing native system webviews, we completely avoid bundling heavy chromium browser engines.
+                Deskly Android downloads at just ~10 MB (9.88 MB for modern arm64 phones) with targeted builds for every device architecture (arm64, 32-bit arm, x86, x86_64, universal, and Google Play AAB). Native .so shared libraries are 4KB page-aligned and uncompressed inside the APK (useLegacyPackaging = false), saving 30–50 MB of device storage by letting the Android kernel memory-map files directly without extracting them to disk.
               </p>
               <p className="text-muted-foreground text-xs md:text-sm font-sans leading-relaxed">
-                The result is a lightning-fast application that launches instantly, consumes negligible RAM, and takes up minimal disk space.
+                By hooking directly into native system webviews, memory usage stays at a fraction of traditional wrappers. The entry bootstrap file is under 1 KB, and 100% of app icons and illustrations use WebP to eliminate cold-boot lag.
               </p>
             </div>
 
@@ -174,10 +174,10 @@ export default function ComparisonSection() {
               <div className="p-6 md:p-8 flex flex-col justify-between h-full min-h-[160px] hover:bg-white/[0.01] transition-colors">
                 <div>
                   <span className="text-[10px] uppercase tracking-wider font-semibold text-muted-foreground/80 font-sans">Desktop App</span>
-                  <h4 className="text-3xl sm:text-4xl font-extrabold text-blue-400 font-sans mt-2">3.0 <span className="text-sm font-normal text-foreground/80">MB</span></h4>
+                  <h4 className="text-3xl sm:text-4xl font-extrabold text-blue-400 font-sans mt-2">2.9 <span className="text-sm font-normal text-foreground/80">MB</span></h4>
                 </div>
                 <p className="text-muted-foreground text-[10px] sm:text-xs font-sans mt-4 leading-normal">
-                  Fully-featured native desktop client. Fits on a floppy disk.
+                  Fully-featured native desktop client. Compiled directly from Rust to bare metal.
                 </p>
               </div>
 
@@ -185,10 +185,10 @@ export default function ComparisonSection() {
               <div className="p-6 md:p-8 flex flex-col justify-between h-full min-h-[160px] hover:bg-white/[0.01] transition-colors">
                 <div>
                   <span className="text-[10px] uppercase tracking-wider font-semibold text-muted-foreground/80 font-sans">Android Mobile</span>
-                  <h4 className="text-3xl sm:text-4xl font-extrabold text-blue-400 font-sans mt-2">40.0 <span className="text-sm font-normal text-foreground/80">MB</span></h4>
+                  <h4 className="text-3xl sm:text-4xl font-extrabold text-blue-400 font-sans mt-2">9.8 <span className="text-sm font-normal text-foreground/80">MB</span></h4>
                 </div>
                 <p className="text-muted-foreground text-[10px] sm:text-xs font-sans mt-4 leading-normal">
-                  Super-optimized build with native API bindings.
+                  arm64 APK download. All formats supported: arm, arm64, x86, x86_64, universal, and AAB.
                 </p>
               </div>
             </div>

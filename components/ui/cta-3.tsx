@@ -49,10 +49,10 @@ export default function CallToAction() {
           {/* Text Content */}
           <div className="space-y-3 text-center px-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white font-header">
-              Ready to Supercharge Your Academic Flow?
+              Academic Tracking Without the Bloat
             </h2>
-            <p className="text-zinc-400 max-w-lg mx-auto text-sm md:text-base font-sans font-normal leading-relaxed">
-              Download Deskly today. Encrypted locally, captcha-free, and 100% open source.
+            <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base font-sans font-normal leading-relaxed">
+              Zero lag. Zero ads. 100% offline-ready. Built with pure Rust for students who value instant speed and zero tracking.
             </p>
           </div>
 
@@ -63,7 +63,13 @@ export default function CallToAction() {
               className="w-full sm:w-auto border-white/10 hover:bg-white/5 text-white rounded-[4px] px-6 py-2 transition-all active:scale-95 cursor-pointer font-sans"
               asChild
             >
-              <a href="#architecture">View Architecture</a>
+              <a 
+                href="https://github.com/deskly-app/deskly"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Architecture
+              </a>
             </Button>
             <Button 
               className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-[4px] px-6 py-2 transition-all active:scale-95 cursor-pointer font-sans"

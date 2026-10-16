@@ -49,11 +49,11 @@ export default function Footer() {
           </div>
           
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white max-w-md font-header leading-[1.25]">
-            Simplify Your VIT Student Life
+            Academic Tracking Without the Bloat
           </h2>
           
           <p className="text-zinc-400 text-xs md:text-sm max-w-sm font-sans font-normal leading-relaxed">
-            Automate VTOP portal sessions, track academic schedules locally, and secure credentials offline. Built by students, for students.
+            An unofficial, ultra-fast student dashboard and attendance companion built with Rust and Tauri. Zero lag, zero ads, and 100% offline-ready.
           </p>
 
           <div className="flex flex-wrap items-center gap-3 mt-2">
@@ -78,49 +78,38 @@ export default function Footer() {
         </div>
 
         {/* Right Columns: Links Grid */}
-        <div className="col-span-12 lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+        <div className="col-span-12 lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
           
-          {/* Column 1: Product */}
+          {/* Column 1: Navigation */}
           <div className="flex flex-col gap-4">
-            <span className="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 select-none font-sans">Product</span>
+            <span className="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 select-none font-sans">Navigation</span>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Features</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Architecture</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Security Logs</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Releases</a></li>
+              <li><a href="/#features" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Features</a></li>
+              <li><a href="/#comparison" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Comparison</a></li>
+              <li><a href="/#integrations" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Integrations</a></li>
+              <li><a href="/#themes" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Themes</a></li>
             </ul>
           </div>
 
-          {/* Column 2: Resources */}
+          {/* Column 2: Downloads */}
           <div className="flex flex-col gap-4">
-            <span className="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 select-none font-sans">Resources</span>
+            <span className="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 select-none font-sans">Downloads</span>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Help Center</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">API Docs</a></li>
-              <li><a href="https://github.com/deskly-app/deskly" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">GitHub Repo</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Contribution</a></li>
+              <li><a href="/download" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Android APK (~10MB)</a></li>
+              <li><a href="/download" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Windows Installer</a></li>
+              <li><a href="/download" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">macOS (DMG)</a></li>
+              <li><a href="/download" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Linux (AppImage / DEB)</a></li>
             </ul>
           </div>
 
-          {/* Column 3: Company */}
+          {/* Column 3: Open Source */}
           <div className="flex flex-col gap-4">
-            <span className="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 select-none font-sans">Company</span>
+            <span className="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 select-none font-sans">Open Source</span>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">About Team</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Open Roles</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Contact</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">MIT License</a></li>
-            </ul>
-          </div>
-
-          {/* Column 4: Social */}
-          <div className="flex flex-col gap-4">
-            <span className="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 select-none font-sans">Social Media</span>
-            <ul className="flex flex-col gap-2.5">
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Instagram</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Discord Server</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">LinkedIn Page</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Twitter / X</a></li>
+              <li><a href="https://github.com/deskly-app/deskly" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">GitHub Repository</a></li>
+              <li><a href="https://github.com/deskly-app/deskly/releases" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Releases &amp; Changelog</a></li>
+              <li><a href="https://github.com/deskly-app/deskly/issues" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Report an Issue</a></li>
+              <li><a href="https://github.com/deskly-app/deskly/blob/master/LICENSE" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">MIT License</a></li>
             </ul>
           </div>
 
@@ -128,14 +117,48 @@ export default function Footer() {
 
       </div>
 
+      {/* What Deskly is NOT (Facts & Disclaimers) */}
+      <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10 border-t border-white/5 pt-8 mt-12 md:mt-16 text-zinc-500 text-[11px] font-sans leading-relaxed grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div>
+          <span className="font-semibold text-zinc-400 block mb-1">Not an Official App</span>
+          Independent open-source project. Not affiliated with, endorsed by, or sponsored by Vellore Institute of Technology (VIT).
+        </div>
+        <div>
+          <span className="font-semibold text-zinc-400 block mb-1">Not a Cloud Platform</span>
+          Zero user accounts or cloud databases. Credentials and timetable data live strictly on the local device.
+        </div>
+        <div>
+          <span className="font-semibold text-zinc-400 block mb-1">Read-Only Companion</span>
+          Designed for tracking and calculation. Does not register courses, bid for FFCS, or alter university records.
+        </div>
+        <div>
+          <span className="font-semibold text-zinc-400 block mb-1">Platform Support</span>
+          Available for Android (7.0+), Windows (10/11), macOS (Apple Silicon &amp; Intel), and Linux. No iOS support.
+        </div>
+      </div>
+
       {/* Subfooter bottom line */}
-      <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10 border-t border-white/5 pt-6 md:pt-8 mt-12 md:mt-16 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 select-none">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 w-full relative z-10 border-t border-white/5 pt-6 md:pt-8 mt-8 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 select-none">
         <span className="text-zinc-500 text-[10px] font-sans">
           &copy; {new Date().getFullYear()} Deskly Assistant. All rights reserved.
         </span>
         <div className="flex gap-4">
-          <a href="#" className="text-zinc-500 hover:text-zinc-300 text-[10px] transition-colors font-sans">Privacy Policy</a>
-          <a href="#" className="text-zinc-500 hover:text-zinc-300 text-[10px] transition-colors font-sans">Terms of Service</a>
+          <a 
+            href="https://github.com/deskly-app/deskly#security--privacy" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-zinc-500 hover:text-zinc-300 text-[10px] transition-colors font-sans"
+          >
+            Zero-Cloud Privacy Policy
+          </a>
+          <a 
+            href="https://github.com/deskly-app/deskly/blob/master/LICENSE" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-zinc-500 hover:text-zinc-300 text-[10px] transition-colors font-sans"
+          >
+            MIT License
+          </a>
         </div>
       </div>
 

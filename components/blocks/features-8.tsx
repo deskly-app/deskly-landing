@@ -18,8 +18,8 @@ export function Features() {
                                     <span className="mx-auto block w-fit text-5xl font-semibold">0ms</span>
                                 </div>
                                 <div className="text-center mt-6 space-y-2">
-                                    <h3 className="text-lg font-semibold text-white tracking-tight">Offline CAPTCHA Solver</h3>
-                                    <p className="text-zinc-400 text-sm leading-relaxed">Segments and decodes VTOP CAPTCHAs natively via single-layer neural weights without external API latency.</p>
+                                    <h3 className="text-lg font-semibold text-white tracking-tight">0ms Offline-First SWR Caching</h3>
+                                    <p className="text-zinc-400 text-sm leading-relaxed">Uses Stale-While-Revalidate local caching. Dashboard, timetable, marks, and attendance load instantly on startup even with zero classroom signal.</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -51,8 +51,8 @@ export function Features() {
                                     </svg>
                                 </div>
                                 <div className="relative z-10 mt-6 space-y-2 text-center">
-                                    <h3 className="text-lg font-semibold text-white tracking-tight">Keychain &amp; Keyring Storage</h3>
-                                    <p className="text-zinc-400 text-sm leading-relaxed">Interfaces directly with macOS Keychain, Windows Credential Manager, and Linux Secret Service with fallback encrypted files.</p>
+                                    <h3 className="text-lg font-semibold text-white tracking-tight">Hardware Keyring Encryption</h3>
+                                    <p className="text-zinc-400 text-sm leading-relaxed">Passwords and tokens are encrypted locally with macOS Keychain, Windows Credential Manager, Linux Secret Service, and Android Keystore. Zero plaintext storage.</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -98,8 +98,8 @@ export function Features() {
                                     </svg>
                                 </div>
                                  <div className="relative z-10 mt-14 space-y-2 text-center">
-                                     <h3 className="text-lg font-semibold text-white tracking-tight">Tauri v2 &amp; Rust Core (Desktop &amp; Android)</h3>
-                                     <p className="text-zinc-400 text-sm leading-relaxed">Built natively in Rust using Tauri v2 to target both Desktop and Android from a single lightweight codebase, avoiding heavy Electron bloat.</p>
+                                     <h3 className="text-lg font-semibold text-white tracking-tight">Tauri v2 &amp; Memory-Mapped Core</h3>
+                                     <p className="text-zinc-400 text-sm leading-relaxed">4KB page-aligned uncompressed native shared libraries let the Android kernel memory-map files directly without disk extraction, saving 30–50MB storage and cutting RAM usage.</p>
                                  </div>
                             </CardContent>
                         </Card>
@@ -110,8 +110,8 @@ export function Features() {
                                         <Shield className="m-auto size-5" strokeWidth={1} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h3 className="text-lg font-semibold text-white tracking-tight">Slot Formatter Engine</h3>
-                                        <p className="text-zinc-400 text-sm leading-relaxed">Translates registered course strings (A1, L17, TB2) into absolute weekly schedules with Google Calendar &amp; .ics exports.</p>
+                                        <h3 className="text-lg font-semibold text-white tracking-tight">Live 75% Tracker &amp; Skip Intelligence</h3>
+                                        <p className="text-zinc-400 text-sm leading-relaxed">Computes attended, conducted, and OD credits in real time. Predicts exact consecutive classes you can safely skip, or how many you must attend to recover your percentage.</p>
                                     </div>
                                 </div>
                                 <div className="rounded-tl-(--radius) relative -mb-6 -mr-6 mt-6 h-fit border-l border-t p-6 py-6 sm:ml-6">
@@ -150,14 +150,14 @@ export function Features() {
                                         <Users className="m-auto size-6" strokeWidth={1} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h3 className="text-lg font-semibold text-white tracking-tight">Academic Scrapers</h3>
-                                        <p className="text-zinc-400 text-sm leading-relaxed">Extracts and parses attendance logs, marks details, advisor contacts, hostel laundry status, and payment receipts natively.</p>
+                                        <h3 className="text-lg font-semibold text-white tracking-tight">Android Home Screen Widgets</h3>
+                                        <p className="text-zinc-400 text-sm leading-relaxed">Glanceable 2x3 and 2x4 widgets calibrated for Samsung One UI, Google Pixel Launcher, and OxygenOS. Updates passively with zero background battery drain.</p>
                                     </div>
                                 </div>
                                 <div className="before:bg-(--color-border) relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px sm:-my-6 sm:-mr-6">
                                     <div className="relative flex h-full flex-col justify-center space-y-6 py-6">
                                         <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                                            <span className="block h-fit rounded border px-2 py-1 text-xs shadow-sm bg-blue-500/5 border-blue-500/20 text-blue-300">Marks &amp; GPAs</span>
+                                            <span className="block h-fit rounded border px-2 py-1 text-xs shadow-sm bg-blue-500/5 border-blue-500/20 text-blue-300">Live 75% Tracker</span>
                                             <div className="ring-background size-7 ring-4">
                                                 <img className="size-full rounded-full" src="https://avatars.githubusercontent.com/u/102558960?v=4" alt="" />
                                             </div>
@@ -166,10 +166,10 @@ export function Features() {
                                             <div className="ring-background size-8 ring-4">
                                                 <img className="size-full rounded-full" src="https://avatars.githubusercontent.com/u/47919550?v=4" alt="" />
                                             </div>
-                                            <span className="block h-fit rounded border px-2 py-1 text-xs shadow-sm bg-blue-500/5 border-blue-500/20 text-blue-300">Attendance Tracker</span>
+                                            <span className="block h-fit rounded border px-2 py-1 text-xs shadow-sm bg-blue-500/5 border-blue-500/20 text-blue-300">2x3 &amp; 2x4 Widgets</span>
                                         </div>
                                         <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                                            <span className="block h-fit rounded border px-2 py-1 text-xs shadow-sm bg-blue-500/5 border-blue-500/20 text-blue-300">Hostel &amp; Laundry</span>
+                                            <span className="block h-fit rounded border px-2 py-1 text-xs shadow-sm bg-blue-500/5 border-blue-500/20 text-blue-300">Safe Skip Intelligence</span>
                                             <div className="ring-background size-7 ring-4">
                                                 <img className="size-full rounded-full" src="https://avatars.githubusercontent.com/u/31113941?v=4" alt="" />
                                             </div>

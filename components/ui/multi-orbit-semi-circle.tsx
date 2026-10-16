@@ -124,10 +124,10 @@ export default function MultiOrbitSemiCircle() {
     <section id="architecture" className="py-20 sm:py-28 md:py-36 lg:py-48 relative w-full overflow-hidden bg-transparent">
       <div className="relative flex flex-col items-center text-center z-10 px-5 md:px-6">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-white mb-3 md:mb-4 font-header leading-[1.2]">
-          Seamless Calendar &amp; Workspace Sync
+          1-Click .ICS Calendar &amp; Schedule Export
         </h2>
         <p className="mb-10 md:mb-16 max-w-2xl text-zinc-400 text-sm md:text-base font-sans font-normal leading-relaxed">
-          Deskly syncs your VTOP academic schedule and slot updates directly with your favorite calendar and productivity workspaces.
+          Export your complete exam schedule, slot timings, seating venues, reporting times, and course timetable straight into Google Calendar, Apple Calendar, or Microsoft Outlook in one click.
         </p>
 
         <div
