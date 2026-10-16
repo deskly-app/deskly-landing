@@ -105,10 +105,6 @@ export default function Page() {
         {/* Hero Content */}
         <ScrollReveal duration={1200}>
           <div className="relative z-20 flex flex-col items-center justify-start text-center px-5 pt-24 sm:pt-28 md:pt-36 max-w-5xl mx-auto">
-            {/* Subtitle */}
-            <div className="flex items-center gap-1.5 text-blue-400/95 text-[10px] sm:text-xs md:text-sm font-medium tracking-wider uppercase mb-3 md:mb-4 font-header">
-              <span>Academic tracking without the bloat • Zero lag • Zero ads • 100% offline-ready</span>
-            </div>
 
             {/* Title */}
             <h1 className="text-white font-semibold text-2xl sm:text-3xl md:text-5xl lg:text-6xl max-w-4xl leading-[1.12] mb-3 md:mb-4 tracking-tight font-header">
