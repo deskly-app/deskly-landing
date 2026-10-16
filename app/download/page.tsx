@@ -351,6 +351,9 @@ export default function DownloadPage() {
                 <div className="flex items-center justify-between gap-4 mt-1">
                   <a 
                     href={file.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    referrerPolicy="no-referrer"
                     className="text-white hover:text-blue-400 font-semibold text-xs font-mono truncate block flex-1 pr-2"
                     title={file.name}
                   >
@@ -358,6 +361,9 @@ export default function DownloadPage() {
                   </a>
                   <a
                     href={file.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    referrerPolicy="no-referrer"
                     className="inline-flex items-center justify-center p-2 rounded-full text-zinc-400 hover:text-white hover:bg-blue-600/10 border border-white/5 hover:border-blue-500/20 transition-all cursor-pointer shrink-0"
                     title="Download File"
                   >
