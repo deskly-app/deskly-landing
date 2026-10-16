@@ -46,6 +46,7 @@ export default function ComparisonSection() {
         </div>
 
         {/* CTA-style retro grid container */}
+        {/* CTA-style retro grid container */}
         <div className="relative mx-auto w-full max-w-5xl border-y border-white/10 bg-[radial-gradient(45%_80%_at_50%_0%,rgba(37,99,235,0.07),transparent)]">
 
           {/* Plus corner markers */}
@@ -58,82 +59,89 @@ export default function ComparisonSection() {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-px border-l border-white/10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-px border-r border-white/10" />
 
-          {/* Column headers row */}
-          <div className="grid grid-cols-[1fr_1fr_1fr] border-b border-white/8">
-            <div className="px-6 md:px-8 py-5">
-              <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-zinc-600 font-sans select-none">
-                Feature
-              </span>
-            </div>
-            <div className="px-6 md:px-8 py-5 border-l border-white/8">
-              <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-zinc-600 font-sans select-none">
-                Other Tools
-              </span>
-            </div>
-            <div className="px-6 md:px-8 py-5 border-l border-blue-500/20 flex items-center gap-2">
-              <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-blue-400 font-sans select-none">
-                Deskly
-              </span>
-              <span className="text-[8px] bg-blue-500/10 text-blue-300/80 border border-blue-500/20 px-1.5 py-0.5 font-sans tracking-wider font-semibold">
-                FREE
-              </span>
-            </div>
-          </div>
+          {/* Scroll wrapper for mobile screens with subtle hint */}
+          <div className="overflow-x-auto scrollbar-none w-full">
+            <div className="min-w-[580px] sm:min-w-0">
 
-          {/* Feature rows */}
-          {rows.map((row, idx) => {
-            const Icon = row.icon;
-            const isLast = idx === rows.length - 1;
-            return (
-              <div
-                key={row.label}
-                className={`group grid grid-cols-[1fr_1fr_1fr] hover:bg-white/[0.02] transition-colors duration-150 ${!isLast ? "border-b border-white/5" : ""}`}
-              >
-                {/* Feature name */}
-                <div className="px-6 md:px-8 py-4 md:py-5 flex items-center gap-3">
-                  <Icon className="w-3.5 h-3.5 text-zinc-500 flex-shrink-0" strokeWidth={1.5} />
-                  <span className="text-white/75 text-xs md:text-sm font-sans font-normal leading-snug">
-                    {row.label}
+              {/* Column headers row */}
+              <div className="grid grid-cols-[1.3fr_1fr_1.1fr] border-b border-white/8">
+                <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-5">
+                  <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-zinc-500 font-sans select-none">
+                    Feature
                   </span>
                 </div>
-
-                {/* Others */}
-                <div className="px-6 md:px-8 py-4 md:py-5 border-l border-white/5 flex items-center gap-2.5">
-                  <X className="w-3 h-3 text-zinc-700 flex-shrink-0" strokeWidth={2.5} />
-                  <span className="text-zinc-600 text-[11px] md:text-xs font-sans">
-                    {row.others}
+                <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 border-l border-white/8">
+                  <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-zinc-500 font-sans select-none">
+                    Other Tools
                   </span>
                 </div>
-
-                {/* Deskly */}
-                <div className="px-6 md:px-8 py-4 md:py-5 border-l border-blue-500/15 flex items-center gap-2.5">
-                  <Check className="w-3 h-3 text-blue-400 flex-shrink-0" strokeWidth={2.5} />
-                  <span className="text-zinc-200 text-[11px] md:text-xs font-sans">
-                    {row.deskly}
+                <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 border-l border-blue-500/20 flex items-center gap-2">
+                  <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-blue-400 font-sans select-none">
+                    Deskly
+                  </span>
+                  <span className="text-[8px] bg-blue-500/10 text-blue-300/80 border border-blue-500/20 px-1.5 py-0.5 font-sans tracking-wider font-semibold">
+                    FREE
                   </span>
                 </div>
               </div>
-            );
-          })}
 
-          {/* Bottom CTA row */}
-          <div className="grid grid-cols-[1fr_1fr_1fr] border-t border-white/8">
-            <div className="px-6 md:px-8 py-6 flex items-center">
-              <span className="text-zinc-500 text-[10px] font-sans italic">
-                100% open source · MIT License
-              </span>
-            </div>
-            <div className="px-6 md:px-8 py-6 border-l border-white/5 flex items-center">
-              <span className="text-zinc-600 text-[10px] font-sans">Limited / Broken</span>
-            </div>
-            <div className="px-6 md:px-8 py-6 border-l border-blue-500/15 flex items-center">
-              <a
-                href="/download"
-                className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-5 py-2 rounded-[4px] text-xs font-medium shadow-lg shadow-blue-500/20 active:scale-95 transition-all font-sans whitespace-nowrap"
-              >
-                Download Free
-                <Download className="w-3.5 h-3.5" />
-              </a>
+              {/* Feature rows */}
+              {rows.map((row, idx) => {
+                const Icon = row.icon;
+                const isLast = idx === rows.length - 1;
+                return (
+                  <div
+                    key={row.label}
+                    className={`group grid grid-cols-[1.3fr_1fr_1.1fr] hover:bg-white/[0.02] transition-colors duration-150 ${!isLast ? "border-b border-white/5" : ""}`}
+                  >
+                    {/* Feature name */}
+                    <div className="px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 md:py-5 flex items-center gap-2.5 sm:gap-3">
+                      <Icon className="w-3.5 h-3.5 text-zinc-500 flex-shrink-0" strokeWidth={1.5} />
+                      <span className="text-white/85 text-xs sm:text-xs md:text-sm font-sans font-normal leading-snug">
+                        {row.label}
+                      </span>
+                    </div>
+
+                    {/* Others */}
+                    <div className="px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 md:py-5 border-l border-white/5 flex items-center gap-2 sm:gap-2.5">
+                      <X className="w-3 h-3 text-zinc-600 flex-shrink-0" strokeWidth={2.5} />
+                      <span className="text-zinc-500 text-[11px] md:text-xs font-sans leading-tight">
+                        {row.others}
+                      </span>
+                    </div>
+
+                    {/* Deskly */}
+                    <div className="px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 md:py-5 border-l border-blue-500/15 flex items-center gap-2 sm:gap-2.5 bg-blue-500/[0.015]">
+                      <Check className="w-3 h-3 text-blue-400 flex-shrink-0" strokeWidth={2.5} />
+                      <span className="text-zinc-100 font-medium text-[11px] md:text-xs font-sans leading-tight">
+                        {row.deskly}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {/* Bottom CTA row */}
+              <div className="grid grid-cols-[1.3fr_1fr_1.1fr] border-t border-white/8">
+                <div className="px-4 sm:px-6 md:px-8 py-5 flex items-center">
+                  <span className="text-zinc-500 text-[10px] font-sans italic">
+                    100% open source · MIT
+                  </span>
+                </div>
+                <div className="px-4 sm:px-6 md:px-8 py-5 border-l border-white/5 flex items-center">
+                  <span className="text-zinc-600 text-[10px] font-sans">Bloated / Slow</span>
+                </div>
+                <div className="px-4 sm:px-6 md:px-8 py-5 border-l border-blue-500/15 flex items-center">
+                  <a
+                    href="/download"
+                    className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-4 sm:px-5 py-2 rounded-[4px] text-xs font-medium shadow-lg shadow-blue-500/20 active:scale-95 transition-all font-sans whitespace-nowrap"
+                  >
+                    Download Free
+                    <Download className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
             </div>
           </div>
 
