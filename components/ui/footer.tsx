@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-import { ArrowRightIcon, Github, Download } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRightIcon, Download } from "lucide-react";
 import { GradientBars } from "@/components/ui/gradient-bars-background";
 
 export default function Footer() {
@@ -44,7 +46,14 @@ export default function Footer() {
         {/* Left Column: Title, Subtitle and Buttons */}
         <div className="col-span-12 lg:col-span-5 flex flex-col gap-6 items-start justify-start">
           <div className="flex items-center gap-2.5">
-            <img src="/app-logo.png" alt="Deskly Logo" className="h-6 w-auto" />
+            <Image
+              src="/app-logo.png"
+              alt="Deskly logo"
+              width={311}
+              height={265}
+              sizes="24px"
+              className="h-6 w-auto"
+            />
             <span className="text-white font-semibold text-sm tracking-widest font-sans uppercase">Deskly</span>
           </div>
           
@@ -84,10 +93,10 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <span className="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 select-none font-sans">Navigation</span>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="/#features" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Features</a></li>
-              <li><a href="/#comparison" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Comparison</a></li>
-              <li><a href="/#integrations" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Integrations</a></li>
-              <li><a href="/#themes" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Themes</a></li>
+              <li><Link href="/#features" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Features</Link></li>
+              <li><Link href="/#comparison" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Comparison</Link></li>
+              <li><Link href="/#integrations" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Integrations</Link></li>
+              <li><Link href="/#themes" className="text-zinc-400 hover:text-white text-xs transition-colors font-sans">Themes</Link></li>
             </ul>
           </div>
 

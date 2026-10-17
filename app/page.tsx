@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Component from "@/components/ui/gradient-bars-background";
 import { Features } from "@/components/blocks/features-8";
@@ -11,7 +12,7 @@ import CallToAction from "@/components/ui/cta-3";
 import Footer from "@/components/ui/footer";
 import ScrollReveal from "@/components/ui/scroll-reveal";
 import ComparisonSection from "@/components/ui/comparison-section";
-import { Shield, BookOpen, Clock, ShieldAlert, Cpu, RefreshCw, Download, Monitor, Smartphone, Zap, Calendar } from "lucide-react";
+import { Shield, BookOpen, Clock, Download, Monitor, Smartphone, Zap, Calendar } from "lucide-react";
 import BootingLoader from "@/components/ui/booting-loader";
 
 const gridFeatures = [
@@ -53,9 +54,9 @@ export default function Page() {
   return (
     <div className="relative w-full min-h-screen bg-black text-white overflow-x-hidden flex flex-col justify-start">
       <BootingLoader />
-      
-      {/* First Fold: Hero Section */}
-      <section className="relative w-full flex flex-col items-center justify-start overflow-visible">
+      <main>
+        {/* First Fold: Hero Section */}
+        <section className="relative w-full flex flex-col items-center justify-start overflow-visible">
         
         {/* Fullscreen Background Component */}
         <div className="absolute top-0 left-0 w-full h-screen z-0 pointer-events-none overflow-hidden">
@@ -74,7 +75,14 @@ export default function Page() {
             <div className="max-w-7xl mx-auto px-5 md:px-8 py-4 md:py-5 flex items-center justify-between">
               {/* Logo */}
               <div className="flex items-center gap-2.5">
-                <img src="/app-logo.png" alt="Deskly Logo" className="h-7 md:h-8 w-auto" />
+                <Image
+                  src="/app-logo.png"
+                  alt="Deskly logo"
+                  width={311}
+                  height={265}
+                  sizes="32px"
+                  className="h-7 md:h-8 w-auto"
+                />
                 <span className="text-white font-semibold text-sm md:text-base tracking-wider font-sans">Deskly</span>
               </div>
 
@@ -108,12 +116,12 @@ export default function Page() {
 
             {/* Title */}
             <h1 className="text-white font-semibold text-2xl sm:text-3xl md:text-5xl lg:text-6xl max-w-4xl leading-[1.12] mb-3 md:mb-4 tracking-tight font-header">
-              We got tired of bloated, unperformant vibecoded wrappers. So we wrote one in Rust.
+              Deskly — VIT attendance and timetable tracking without the bloat
             </h1>
 
             {/* Description */}
             <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-xl md:max-w-2xl mb-6 md:mb-7 leading-relaxed font-sans font-normal px-2">
-              Engineered for raw speed. Zero ads, zero bloat, and sub-millisecond offline execution. While typical VTOP apps feel sluggish and vibecoded, Deskly harnesses native Rust performance to deliver a radically small footprint, relentless optimizations, and rock-solid updates that keep working when you need them most.
+              Deskly is a free, open-source companion for VIT students. Track attendance, view timetables and marks, export schedules, and access your VTOP data with a fast, privacy-first app for Android and desktop.
             </p>
 
             {/* Action Buttons */}
@@ -204,13 +212,21 @@ export default function Page() {
                         <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-green-500/80"></span>
                       </div>
                       <div className="flex-1 max-w-[120px] sm:max-w-xs mx-auto bg-[#070a12] rounded-md py-1 px-2 sm:px-3 text-center text-[9px] sm:text-[10px] text-white/40 font-mono tracking-wide border border-white/5 select-none">
-                        deskly.app
+                         deskly.vishaldev.space
                       </div>
                       <div className="flex items-center gap-2 text-white/30">
                       </div>
                     </div>
                     <div className="w-full bg-black">
-                      <img src="/main.png" alt="Deskly Desktop Application Preview" className="w-full h-auto block select-none" />
+                      <Image
+                        src="/main.png"
+                        alt="Deskly desktop dashboard showing attendance and timetable information"
+                        width={1673}
+                        height={940}
+                        sizes="(max-width: 1250px) 100vw, 1250px"
+                        priority
+                        className="w-full h-auto block select-none"
+                      />
                     </div>
                   </motion.div>
                 ) : (
@@ -222,10 +238,13 @@ export default function Page() {
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="flex justify-center items-center py-4 sm:py-8"
                   >
-                    <img 
-                      src="/mobile.png" 
-                      alt="Deskly Mobile Client Preview" 
-                      className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[340px] h-auto block drop-shadow-[0_25px_50px_rgba(0,0,0,0.95)] select-none pointer-events-none" 
+                    <Image
+                      src="/mobile.png"
+                      alt="Deskly Android app showing attendance and timetable details"
+                      width={320}
+                      height={630}
+                      sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, 340px"
+                      className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[340px] h-auto block drop-shadow-[0_25px_50px_rgba(0,0,0,0.95)] select-none pointer-events-none"
                     />
                   </motion.div>
                 )}
@@ -233,10 +252,10 @@ export default function Page() {
             </motion.div>
           </div>
         </ScrollReveal>
-      </section>
+        </section>
 
-      {/* Features Section */}
-      <section id="features" className="relative bg-black py-20 sm:py-28 md:py-36 lg:py-48 z-20 flex flex-col items-center flex-1">
+        {/* Features Section */}
+        <section id="features" className="relative bg-black py-20 sm:py-28 md:py-36 lg:py-48 z-20 flex flex-col items-center flex-1">
         <div
           className="absolute inset-0 pointer-events-none z-0"
           style={{ background: `radial-gradient(ellipse 80% 70% at 50% 55%, rgba(37, 99, 235, 0.24) 0%, rgba(29, 78, 216, 0.08) 50%, transparent 85%)` }}
@@ -271,10 +290,10 @@ export default function Page() {
             </div>
           </ScrollReveal>
         </div>
-      </section>
+        </section>
 
-      {/* Grid Features Section */}
-      <section className="relative bg-black py-20 sm:py-28 md:py-36 lg:py-48 z-20 flex flex-col items-center">
+        {/* Grid Features Section */}
+        <section className="relative bg-black py-20 sm:py-28 md:py-36 lg:py-48 z-20 flex flex-col items-center">
         <div
           className="absolute inset-0 pointer-events-none z-0"
           style={{ background: `radial-gradient(ellipse 80% 70% at 50% 50%, rgba(37, 99, 235, 0.24) 0%, rgba(29, 78, 216, 0.08) 50%, transparent 85%)` }}
@@ -304,33 +323,35 @@ export default function Page() {
             </div>
           </ScrollReveal>
         </div>
-      </section>
+        </section>
 
-      {/* Comparison Section */}
-      <ScrollReveal>
-        <div id="comparison" className="w-full">
-          <ComparisonSection />
-        </div>
-      </ScrollReveal>
+        {/* Comparison Section */}
+        <ScrollReveal>
+          <div id="comparison" className="w-full">
+            <ComparisonSection />
+          </div>
+        </ScrollReveal>
 
-      {/* Multi Orbit Semi-Circle Section */}
-      <ScrollReveal>
-        <div id="integrations" className="w-full">
-          <MultiOrbitSemiCircle />
-        </div>
-      </ScrollReveal>
+        {/* Multi Orbit Semi-Circle Section */}
+        <ScrollReveal>
+          <div id="integrations" className="w-full">
+            <MultiOrbitSemiCircle />
+          </div>
+        </ScrollReveal>
 
-      {/* Feature Image Comparison Section */}
-      <ScrollReveal>
-        <div id="themes" className="w-full">
-          <FeatureWithImageComparison />
-        </div>
-      </ScrollReveal>
+        {/* Feature Image Comparison Section */}
+        <ScrollReveal>
+          <div id="themes" className="w-full">
+            <FeatureWithImageComparison />
+          </div>
+        </ScrollReveal>
 
-      {/* CTA Section */}
-      <ScrollReveal>
-        <CallToAction />
-      </ScrollReveal>
+        {/* CTA Section */}
+        <ScrollReveal>
+          <CallToAction />
+        </ScrollReveal>
+
+      </main>
 
       {/* Footer Section */}
       <ScrollReveal delay={100}>

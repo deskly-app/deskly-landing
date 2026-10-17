@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import LenisProvider from "@/components/providers/lenis-provider";
+import { GITHUB_URL, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const raleway = Raleway({
@@ -10,33 +11,26 @@ const raleway = Raleway({
   display: "swap",
 });
 
-// Production-grade SEO metadata
 export const metadata: Metadata = {
-  metadataBase: new URL("https://deskly.vishaldev.space"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Deskly - Open Source Desktop App for VIT Chennai Students",
+    default: "Deskly — Open-Source VIT Attendance & Timetable App",
     template: "%s | Deskly",
   },
   description:
-    "Free open-source desktop application for VIT Chennai students. Get real-time VTOP access, automatic attendance tracking, timetable management, and secure credential storage. Built with Electron for Windows, macOS, and Linux.",
+    "Deskly is a free, open-source VIT student app for attendance, timetables, marks, calendars, and VTOP access on Android, Windows, macOS, and Linux.",
   keywords: [
     "VIT Chennai",
-    "VTOP access",
-    "VIT Chennai desktop app",
-    "attendance tracker VIT",
+    "VIT attendance app",
     "VIT timetable app",
-    "student portal VIT",
-    "open source student app",
-    "VIT Chennai software",
-    "VTOP automation",
-    "electron app VIT",
-    "VIT Chennai utilities",
-    "campus services VIT",
+    "VTOP app",
+    "student productivity app",
+    "open-source student app",
   ],
   authors: [
     {
       name: "Deskly Contributors",
-      url: "https://github.com/deskly-app/deskly",
+      url: GITHUB_URL,
     },
   ],
   creator: "Deskly Contributors",
@@ -45,37 +39,34 @@ export const metadata: Metadata = {
   category: "Education",
   classification: "Student Productivity Software",
 
-  // Open Graph metadata for social sharing
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://deskly.vishaldev.space",
-    siteName: "Deskly",
-    title: "Deskly - Open Source Desktop App for VIT Chennai Students",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: "Deskly — Open-Source VIT Attendance & Timetable App",
     description:
-      "Free desktop application for VIT Chennai students with real-time VTOP access, attendance tracking, and secure session management.",
+      "A free, open-source VIT student app for attendance, timetables, marks, calendars, and VTOP access on Android and desktop.",
     images: [
       {
-        url: "/app-logo.png",
-        width: 512,
-        height: 512,
-        alt: "Deskly - VIT Chennai Desktop Portal",
+        url: "/main.png",
+        width: 1673,
+        height: 940,
+        alt: "Deskly attendance and timetable dashboard",
         type: "image/png",
       },
     ],
   },
 
-  // Twitter Card metadata
   twitter: {
     card: "summary_large_image",
-    title: "Deskly - Open Source Desktop App for VIT Chennai Students",
+    title: "Deskly — Open-Source VIT Attendance & Timetable App",
     description:
-      "Free desktop application for VIT Chennai students with real-time VTOP access, attendance tracking, and secure session management.",
-    images: ["/app-logo.png"],
+      "A free, open-source VIT student app for attendance, timetables, marks, calendars, and VTOP access on Android and desktop.",
+    images: ["/main.png"],
     creator: "@vishal_dev_",
   },
 
-  // Robots directives
   robots: {
     index: true,
     follow: true,
@@ -88,31 +79,19 @@ export const metadata: Metadata = {
     },
   },
 
-  // Additional metadata
   alternates: {
-    canonical: "https://deskly.vishaldev.space",
+    canonical: SITE_URL,
   },
 
-  // App-specific metadata
   appleWebApp: {
     capable: true,
     title: "Deskly",
     statusBarStyle: "default",
   },
 
-  // Verification tokens (add when you have them)
-  verification: {
-    // google: "your-google-site-verification-code",
-    // yandex: "your-yandex-verification-code",
-  },
-
-  // Others
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/app-logo.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [{ url: "/app-logo.png", sizes: "180x180", type: "image/png" }],
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 
@@ -121,57 +100,45 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // JSON-LD Structured Data for enhanced SEO
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        name: "Deskly",
+        name: SITE_NAME,
         applicationCategory: "EducationalApplication",
-        operatingSystem: ["Windows", "macOS", "Linux"],
+        applicationSubCategory: "Student productivity",
+        operatingSystem: ["Android", "Windows", "macOS", "Linux"],
+        url: SITE_URL,
         offers: {
           "@type": "Offer",
           price: "0",
           priceCurrency: "USD",
         },
         description:
-          "Free open-source desktop application for VIT Chennai students with real-time VTOP access, attendance tracking, and timetable management.",
-        softwareVersion: "5.0.0",
-        downloadUrl: "https://github.com/deskly-app/deskly/releases",
-        screenshot: "https://deskly.vishaldev.space/main.png",
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.8",
-          ratingCount: "150",
-        },
+          "Free, open-source student app for VIT attendance, timetables, marks, calendars, and VTOP access.",
+        downloadUrl: `${SITE_URL}/download`,
+        screenshot: `${SITE_URL}/main.png`,
+        isAccessibleForFree: true,
         author: {
           "@type": "Organization",
           name: "Deskly Contributors",
-          url: "https://github.com/deskly-app/deskly",
+          url: GITHUB_URL,
         },
       },
       {
         "@type": "WebSite",
-        name: "Deskly",
-        url: "https://deskly.vishaldev.space",
-        description: "Open source desktop application for VIT Chennai students",
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate:
-              "https://deskly.vishaldev.space/search?q={search_term_string}",
-          },
-          "query-input": "required name=search_term_string",
-        },
+        name: SITE_NAME,
+        url: SITE_URL,
+        description: "Open-source student app for VIT attendance and timetables.",
+        inLanguage: "en",
       },
       {
         "@type": "Organization",
-        name: "Deskly",
-        url: "https://deskly.vishaldev.space",
-        logo: "https://deskly.vishaldev.space/app-logo.png",
-        sameAs: ["https://github.com/deskly-app/deskly"],
+        name: SITE_NAME,
+        url: SITE_URL,
+        logo: `${SITE_URL}/app-logo.png`,
+        sameAs: [GITHUB_URL],
       },
     ],
   };
@@ -179,7 +146,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

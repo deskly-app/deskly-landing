@@ -28,37 +28,54 @@ function getSafeFileName(value: string | null, sourceUrl: URL): string {
 }
 
 export async function GET(request: NextRequest) {
+  const noIndexHeaders = {
+    "X-Robots-Tag": "noindex, nofollow, noarchive",
+  };
   const sourceUrl = getAllowedReleaseUrl(request.nextUrl.searchParams.get("url"));
   if (!sourceUrl) {
-    return Response.json({ error: "Invalid release asset URL" }, { status: 400 });
+    return Response.json(
+      { error: "Invalid release asset URL" },
+      { status: 400, headers: noIndexHeaders },
+    );
   }
 
-  const range = request.headers.get("range");
-  const upstream = await fetch(sourceUrl, {
-    cache: "no-store",
-    redirect: "follow",
-    headers: range ? { Range: range } : undefined,
-  });
+  try {
+    const range = request.headers.get("range");
+    const upstream = await fetch(sourceUrl, {
+      cache: "no-store",
+      redirect: "follow",
+      headers: range ? { Range: range } : undefined,
+    });
 
-  if (!upstream.ok || !upstream.body) {
-    return Response.json({ error: "Unable to fetch release asset" }, { status: 502 });
+    if (!upstream.ok || !upstream.body) {
+      return Response.json(
+        { error: "Unable to fetch release asset" },
+        { status: 502, headers: noIndexHeaders },
+      );
+    }
+
+    const fileName = getSafeFileName(request.nextUrl.searchParams.get("filename"), sourceUrl);
+    const responseHeaders = new Headers({
+      ...noIndexHeaders,
+      "Content-Disposition": `attachment; filename="${fileName}"`,
+      "Content-Type": upstream.headers.get("content-type") || "application/octet-stream",
+      "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff",
+    });
+
+    for (const headerName of ["accept-ranges", "content-length", "content-range", "etag", "last-modified"]) {
+      const value = upstream.headers.get(headerName);
+      if (value) responseHeaders.set(headerName, value);
+    }
+
+    return new Response(upstream.body, {
+      status: upstream.status,
+      headers: responseHeaders,
+    });
+  } catch {
+    return Response.json(
+      { error: "Unable to fetch release asset" },
+      { status: 502, headers: noIndexHeaders },
+    );
   }
-
-  const fileName = getSafeFileName(request.nextUrl.searchParams.get("filename"), sourceUrl);
-  const responseHeaders = new Headers({
-    "Content-Disposition": `attachment; filename="${fileName}"`,
-    "Content-Type": upstream.headers.get("content-type") || "application/octet-stream",
-    "Cache-Control": "no-store",
-    "X-Content-Type-Options": "nosniff",
-  });
-
-  for (const headerName of ["accept-ranges", "content-length", "content-range", "etag", "last-modified"]) {
-    const value = upstream.headers.get(headerName);
-    if (value) responseHeaders.set(headerName, value);
-  }
-
-  return new Response(upstream.body, {
-    status: upstream.status,
-    headers: responseHeaders,
-  });
 }

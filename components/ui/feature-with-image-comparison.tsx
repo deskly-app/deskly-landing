@@ -51,7 +51,7 @@ export default function FeatureWithImageComparison() {
             Designed for Day and Night
           </h2>
           <p className="max-w-2xl text-zinc-400 text-sm md:text-base font-sans font-normal leading-relaxed px-2">
-            Slide to compare Deskly's immersive dark mode and clean, vibrant light mode desktop dashboard layouts.
+            Slide to compare Deskly&apos;s immersive dark mode and clean, vibrant light mode desktop dashboard layouts.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export default function FeatureWithImageComparison() {
               </div>
               {/* URL bar */}
               <div className="flex-1 max-w-xs mx-auto bg-[#070a12] rounded-md py-1 px-3 text-center text-[10px] text-white/40 font-mono tracking-wide border border-white/5 select-none">
-                deskly.app
+                deskly.vishaldev.space
               </div>
               {/* Actions Placeholder */}
               <div className="flex items-center gap-2 text-white/30">

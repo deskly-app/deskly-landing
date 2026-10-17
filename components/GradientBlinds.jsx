@@ -38,9 +38,7 @@ const GradientBlinds = ({
   spotlightOpacity = 1,
   distortAmount = 0,
   shineDirection = 'left',
-  mixBlendMode = 'lighten',
-  color1,
-  color2
+  mixBlendMode = 'lighten'
 }) => {
   const containerRef = useRef(null);
   const rafRef = useRef(null);

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const INTEGRATIONS = [
   { icon: "/google-calendar.svg", name: "Google Calendar" },
@@ -29,7 +30,16 @@ function getRandomizedIntegrations(count: number, arcId: number) {
   return list;
 }
 
-function SemiCircleOrbit({ radius, centerX, centerY, count, iconSize, arcId }: any) {
+interface SemiCircleOrbitProps {
+  radius: number;
+  centerX: number;
+  centerY: number;
+  count: number;
+  iconSize: number;
+  arcId: number;
+}
+
+function SemiCircleOrbit({ radius, centerX, centerY, count, iconSize, arcId }: SemiCircleOrbitProps) {
   const items = getRandomizedIntegrations(count, arcId);
 
   return (
@@ -69,9 +79,9 @@ function SemiCircleOrbit({ radius, centerX, centerY, count, iconSize, arcId }: a
             }}
           >
             <div className="flex items-center justify-center cursor-pointer">
-              <img
-                src={`${item.icon}?v=3`}
-                alt={`icon-${index}`}
+              <Image
+                src={item.icon}
+                alt={item.name}
                 width={iconSize}
                 height={iconSize}
                 className="object-contain"

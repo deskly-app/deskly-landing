@@ -63,9 +63,8 @@ const GradientBars: React.FC<GradientBarsProps> = ({
                   animationDelay: `${index * 0.2}s`,
                   outline: '1px solid rgba(0, 0, 0, 0)',
                   boxSizing: 'border-box',
-                  // @ts-ignore
+                  // @ts-expect-error WebGL context type is provided by the OGL runtime.
                   '--min-opacity': (baseOpacity * 0.5).toFixed(5),
-                  // @ts-ignore
                   '--max-opacity': (baseOpacity * 1.3).toFixed(5),
                 }}
               />

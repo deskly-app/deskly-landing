@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function BootingLoader() {
@@ -70,19 +71,20 @@ export default function BootingLoader() {
             } 
           }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black select-none overflow-hidden"
+          aria-hidden="true"
         >
           {/* Typographic Center Panel */}
           <div className="flex flex-col items-center">
             
             {/* Big, clean numeric counter */}
-            <motion.h1 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="text-8xl sm:text-[10rem] font-extralight tracking-tighter text-white font-sans tabular-nums leading-none"
             >
               {formattedProgress}
-            </motion.h1>
+            </motion.div>
 
             {/* Ultra-thin loading bar */}
             <div className="w-36 h-[1px] bg-white/10 mt-8 overflow-hidden relative rounded-full">
@@ -99,7 +101,14 @@ export default function BootingLoader() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="mt-6 flex items-center gap-2"
             >
-              <img src="/app-logo.png" alt="Deskly" className="h-3.5 w-auto" />
+              <Image
+                src="/app-logo.png"
+                alt=""
+                width={311}
+                height={265}
+                sizes="14px"
+                className="h-3.5 w-auto"
+              />
               <span className="text-[9px] tracking-[0.35em] text-white uppercase font-sans font-medium">
                 DESKLY
               </span>

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import Component from "@/components/ui/gradient-bars-background";
 import Footer from "@/components/ui/footer";
 import ScrollReveal from "@/components/ui/scroll-reveal";
@@ -24,7 +26,6 @@ interface ReleaseFile {
 }
 
 const FALLBACK_RELEASE_VERSION = "v7.1.6";
-const FALLBACK_PUBLISHED_AT = "2026-10-16T16:56:11Z";
 
 const FALLBACK_FILES: ReleaseFile[] = [
   {
@@ -179,6 +180,50 @@ function isInstallerFile(name: string): boolean {
   ) && !lower.endsWith(".sig");
 }
 
+type OperatingSystem = ReleaseFile["platform"];
+
+interface GitHubReleaseAsset {
+  name?: string;
+  size?: number;
+  browser_download_url?: string;
+  digest?: string | null;
+}
+
+interface GitHubRelease {
+  tag_name?: string;
+  body?: string;
+  assets?: GitHubReleaseAsset[];
+}
+
+function detectOperatingSystem(): OperatingSystem | null {
+  if (typeof window === "undefined") return null;
+
+  const ua = window.navigator.userAgent.toLowerCase();
+  if (ua.includes("android")) return "android";
+  if (ua.includes("macintosh") || ua.includes("mac os x") || ua.includes("iphone") || ua.includes("ipad")) return "mac";
+  if (ua.includes("windows") || ua.includes("win32") || ua.includes("win64")) return "windows";
+  if (ua.includes("linux")) return "linux";
+  return null;
+}
+
+function getRecommendedFile(
+  detectedOS: OperatingSystem | null,
+  filesList: ReleaseFile[],
+): ReleaseFile | null {
+  if (!detectedOS || filesList.length === 0) return null;
+
+  if (detectedOS === "windows") {
+    return filesList.find((file) => file.name.endsWith(".exe")) || filesList.find((file) => file.platform === "windows") || null;
+  }
+  if (detectedOS === "mac") {
+    return filesList.find((file) => file.name.endsWith(".dmg")) || filesList.find((file) => file.platform === "mac") || null;
+  }
+  if (detectedOS === "linux") {
+    return filesList.find((file) => file.name.endsWith(".AppImage")) || filesList.find((file) => file.platform === "linux") || null;
+  }
+  return filesList.find((file) => file.name.includes("arm64.apk")) || filesList.find((file) => file.name.endsWith(".apk")) || filesList.find((file) => file.platform === "android") || null;
+}
+
 function getDownloadHref(file: ReleaseFile): string {
   if (file.platform !== "android") return file.url;
 
@@ -193,41 +238,13 @@ export default function DownloadPage() {
   const [version, setVersion] = useState<string>(FALLBACK_RELEASE_VERSION);
   const [filesList, setFilesList] = useState<ReleaseFile[]>(FALLBACK_FILES);
   const [loading, setLoading] = useState<boolean>(true);
-  const [detectedOS, setDetectedOS] = useState<"mac" | "windows" | "linux" | "android" | null>(null);
-  const [recommendedFile, setRecommendedFile] = useState<ReleaseFile | null>(null);
+  const [detectedOS, setDetectedOS] = useState<OperatingSystem | null>(null);
+  const recommendedFile = getRecommendedFile(detectedOS, filesList);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const ua = window.navigator.userAgent.toLowerCase();
-      let os: "mac" | "windows" | "linux" | "android" | null = null;
-      if (ua.includes("android")) {
-        os = "android";
-      } else if (ua.includes("macintosh") || ua.includes("mac os x") || ua.includes("iphone") || ua.includes("ipad")) {
-        os = "mac";
-      } else if (ua.includes("windows") || ua.includes("win32") || ua.includes("win64")) {
-        os = "windows";
-      } else if (ua.includes("linux")) {
-        os = "linux";
-      }
-      setDetectedOS(os);
-    }
+    const frame = window.requestAnimationFrame(() => setDetectedOS(detectOperatingSystem()));
+    return () => window.cancelAnimationFrame(frame);
   }, []);
-
-  useEffect(() => {
-    if (detectedOS && filesList.length > 0) {
-      let bestFile: ReleaseFile | null = null;
-      if (detectedOS === "windows") {
-        bestFile = filesList.find(f => f.name.endsWith(".exe")) || filesList.find(f => f.platform === "windows") || null;
-      } else if (detectedOS === "mac") {
-        bestFile = filesList.find(f => f.name.endsWith(".dmg")) || filesList.find(f => f.platform === "mac") || null;
-      } else if (detectedOS === "linux") {
-        bestFile = filesList.find(f => f.name.endsWith(".AppImage")) || filesList.find(f => f.platform === "linux") || null;
-      } else if (detectedOS === "android") {
-        bestFile = filesList.find(f => f.name.includes("arm64.apk")) || filesList.find(f => f.name.endsWith(".apk")) || filesList.find(f => f.platform === "android") || null;
-      }
-      setRecommendedFile(bestFile);
-    }
-  }, [detectedOS, filesList]);
 
   useEffect(() => {
     let active = true;
@@ -235,7 +252,7 @@ export default function DownloadPage() {
       try {
         const res = await fetch("https://api.github.com/repos/deskly-app/deskly/releases/latest");
         if (!res.ok) throw new Error("API Limit");
-        const data = await res.json();
+        const data = (await res.json()) as GitHubRelease;
         if (!active) return;
 
         const latestVersion = data.tag_name || FALLBACK_RELEASE_VERSION;
@@ -243,11 +260,11 @@ export default function DownloadPage() {
         const assets = data.assets || [];
 
         const installers: ReleaseFile[] = assets
-          .filter((asset: any) => isInstallerFile(asset.name || ""))
-          .map((asset: any) => {
-            const name = asset.name || "";
+          .filter((asset) => Boolean(asset.name && asset.browser_download_url && isInstallerFile(asset.name)))
+          .map((asset) => {
+            const name = asset.name as string;
             const sizeStr = formatSize(asset.size || 0);
-            const url = asset.browser_download_url;
+            const url = asset.browser_download_url as string;
 
             let platform: "mac" | "windows" | "linux" | "android" = "windows";
             let platformName = "Windows Binary";
@@ -467,18 +484,25 @@ export default function DownloadPage() {
       <header className="absolute top-0 left-0 w-full z-50">
         <ScrollReveal duration={1000} delay={100} margin="0px">
           <div className="max-w-7xl mx-auto px-5 md:px-8 py-4 md:py-5 flex items-center justify-between">
-            <a href="/" className="flex items-center gap-2.5 cursor-pointer">
-              <img src="/app-logo.png" alt="Deskly Logo" className="h-7 md:h-8 w-auto" />
+            <Link href="/" className="flex items-center gap-2.5 cursor-pointer">
+              <Image
+                src="/app-logo.png"
+                alt="Deskly logo"
+                width={311}
+                height={265}
+                sizes="32px"
+                className="h-7 md:h-8 w-auto"
+              />
               <span className="text-white font-semibold text-sm md:text-base tracking-wider font-sans">Deskly</span>
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/"
               className="flex items-center gap-1.5 text-zinc-400 hover:text-white text-xs font-medium transition-colors font-sans"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               Back to Home
-            </a>
+            </Link>
           </div>
         </ScrollReveal>
       </header>
