@@ -116,12 +116,12 @@ export default function Page() {
 
             {/* Title */}
             <h1 className="text-white font-semibold text-2xl sm:text-3xl md:text-5xl lg:text-6xl max-w-4xl leading-[1.12] mb-3 md:mb-4 tracking-tight font-header">
-              Deskly — VIT attendance and timetable tracking without the bloat
+              We got tired of bloated, unperformant vibecoded wrappers. So we wrote one in Rust.
             </h1>
 
             {/* Description */}
             <p className="text-white/60 text-xs sm:text-sm md:text-base max-w-xl md:max-w-2xl mb-6 md:mb-7 leading-relaxed font-sans font-normal px-2">
-              Deskly is a free, open-source companion for VIT students. Track attendance, view timetables and marks, export schedules, and access your VTOP data with a fast, privacy-first app for Android and desktop.
+              Engineered for raw speed. Zero bloat and sub-millisecond offline execution. While typical VTOP apps feel sluggish and vibecoded, Deskly harnesses native Rust performance to deliver a radically small footprint, relentless optimizations, and rock-solid updates that keep working when you need them most.
             </p>
 
             {/* Action Buttons */}
